@@ -5,7 +5,8 @@ import { languages, proxyUrl } from '../lib/languages';
 
 interface Props { path: string; variant: 'menu' | 'grid' }
 const { path, variant } = Astro.props;
-const site = Astro.site!;
+// Keep translations on the same deployment when reviewing a Pages preview.
+const site = new URL(process.env.CF_PAGES_URL || Astro.site!.href);
 ---
 <ul class:list={['langs', variant]} translate="no">
   {languages.map((l) => (

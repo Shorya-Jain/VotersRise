@@ -34,7 +34,7 @@ export const languages: Language[] = [
 
 /**
  * The page opened through Google Translate's website proxy. Works only for pages on
- * a public URL, so `site` in astro.config.mjs must be the real deployed address.
+ * a public URL. Pass the current Pages deployment URL, or the configured site URL.
  */
 export function proxyUrl(site: URL, path: string, code: string): string {
   const host = site.host.replace(/-/g, '--').replace(/\./g, '-');
