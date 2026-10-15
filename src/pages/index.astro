@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import FormTicker from '../components/FormTicker.astro';
 import LanguageList from '../components/LanguageList.astro';
 import { m } from '../lib/text';
 
@@ -21,6 +22,7 @@ const tasks = [
         <a class="register-link" href="/register/">{m.home.tasks.register.title}<span aria-hidden="true">↗</span></a>
       </div>
       <p class="hero-note muted">{m.home.applicationNote}</p>
+      <FormTicker />
     </div>
     <aside class="voter-note" aria-labelledby="voter-note-title">
       <p class="eyebrow"><span class="note-rule" aria-hidden="true"></span>{m.home.whyTitle}</p>

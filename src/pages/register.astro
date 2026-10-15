@@ -22,7 +22,7 @@ const r = m.register;
 >
   <h1>{r.title}</h1>
   <p class="lead" set:html={rich(r.lead)} />
-  <ExternalCTA href="https://voters.eci.gov.in/" label={r.cta} note={m.common.opensOfficial} />
+  <ExternalCTA href="https://voters.eci.gov.in/" label={r.cta} note={m.common.opensOfficial} track="form6" />
 
   <h2>{r.whoTitle}</h2>
   <RichList items={r.who} check />

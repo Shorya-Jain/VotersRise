@@ -62,7 +62,9 @@
       "register": "Form 6 · New voters",
       "move": "Form 8 · Address changes",
       "deadlines": "Election dates"
-    }
+    },
+    "ticker": "Official ECI forms opened from VotersRise: {count}",
+    "tickerNote": "Counts clicks on our Form 6 and Form 8 buttons, at most once a day per visitor. It does not count registrations."
   },
   "check": {
     "title": "Is your name on the voter list?",
@@ -304,11 +306,13 @@
     "lead": "VotersRise is a free, independent guide for voters in India.",
     "why": "Every election, people find out too late that their name is missing, or they are stuck in a city far from where they are registered. The official information exists, but it is spread across many websites and is hard to follow. We put the key steps in one place, in plain language, in every scheduled language of India.",
     "independentTitle": "Independent",
-    "independent": "We are not part of ECI or a political party. This site has no application forms, advertising, or analytics. Submit voter applications on official ECI websites.",
+    "independent": "We are not part of ECI or a political party. This site has no application forms or advertising. Submit voter applications on official ECI websites.",
     "accuracyTitle": "How we check facts",
     "accuracy": "Each guide lists its sources. Rules and dates can change. Confirm the current requirements on the official website before you apply.",
     "translationTitle": "About the translations",
-    "translation": "We write every page in English. When you choose another language, the page opens through Google Translate, so its text is sent to Google for translation. Machine translation can make mistakes. If something is unclear, switch back to English or check the official website. Google Translate does not support Bodo and Kashmiri yet."
+    "translation": "We write every page in English. When you choose another language, the page opens through Google Translate, so its text is sent to Google for translation. Machine translation can make mistakes. If something is unclear, switch back to English or check the official website. Google Translate does not support Bodo and Kashmiri yet.",
+    "countingTitle": "What we count",
+    "counting": "We count clicks on the buttons that open the official Form 6 and Form 8 pages, and show the total on the home page. To count each visitor at most once a day, we keep a scrambled code made from your internet address until the next day, then delete it. We do not store your internet address, use cookies, or track you across pages."
   },
   "notFound": {
     "title": "Page not found",

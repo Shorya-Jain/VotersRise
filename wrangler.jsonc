@@ -4,5 +4,20 @@
   // main deploys to production. See README "Deploy".
   "name": "votersrise",
   "compatibility_date": "2026-10-01",
-  "pages_build_output_dir": "./dist"
+  "pages_build_output_dir": "./dist",
+
+  // Form-click counter (functions/api/clicks.js). COUNT_SALT is a Pages secret.
+  "vars": { "COUNT_CLICKS": "true" },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "votersrise-counter", "database_id": "75b1e171-b833-40f6-bb31-2a504f54da36" }
+  ],
+  // Preview deployments can read the total but never add to it.
+  "env": {
+    "preview": {
+      "vars": { "COUNT_CLICKS": "false" },
+      "d1_databases": [
+        { "binding": "DB", "database_name": "votersrise-counter", "database_id": "75b1e171-b833-40f6-bb31-2a504f54da36" }
+      ]
+    }
+  }
 }
