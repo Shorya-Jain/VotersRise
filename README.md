@@ -36,5 +36,8 @@ npx wrangler login   # once
 npm run deploy
 ```
 
+## Contribute
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Licence
 Code: [MIT](LICENSE). Guide text, translations and data: [CC BY 4.0](LICENSE-CONTENT.md).

@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "links": "linkinator dist --recurse --skip '^(?!file://)'",
+    "links": "linkinator dist --recurse --check-css --check-fragments --skip '^https?://(?!127\\.0\\.0\\.1(?::|/))'",
     "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
@@ -31,7 +31,6 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
-    "@reticlehq/react": "^3.7.0",
     "linkinator": "8.1.0",
     "typescript": "6.0.3",
     "wrangler": "4.151.0"

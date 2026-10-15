@@ -7,7 +7,7 @@ A free, non-commercial guide that helps Indian voters check the voter list, regi
 - **Mobile first.** Budget Android phones on slow networks. Tap targets ≥ 44px, single column, check at 360px wide.
 - **No invented facts.** Every procedure, date and number must come from an ECI form, guideline, press note or the law, and be listed in the page's `sources`. If you cannot verify something, leave it out and say so. Update `lastVerified` when you re-check a page.
 - **English only in the repo.** All text lives in `src/content/en.json`. Translation happens at view time via Google Translate (links in `LanguageList.astro`); there are no translation files or models.
-- Write English in plain language: short sentences, common words. Google translates it much better.
+- Use ASD Simplified Technical English conventions: short sentences, one instruction per sentence, and consistent terms.
 - Mark text that must not be translated (brand, domains, language names) with `translate="no"`.
 
 ## Layout

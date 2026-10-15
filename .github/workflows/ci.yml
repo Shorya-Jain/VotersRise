@@ -31,3 +31,4 @@ jobs:
       - name: Type-check and lint (astro check)
         run: npm run check
       - run: npm run build
+      - run: npm run links
