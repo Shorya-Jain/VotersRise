@@ -39,7 +39,7 @@ The October 2026 review fixed these repository problems:
 - Address guidance could imply that travel plans determined the registration address. It now refers to normal residence.
 - Schedule data included secondary sources and incomplete dates. It is now excluded from public pages pending verification.
 - The local link command skipped every URL and reported success after checking zero links. It now checks local pages, assets, and fragments.
-- The project had no contribution guide or CI workflow. Both are now included.
+- The project had no contribution guide or automated release checks. The guide is added, and CI now checks local links and generated pages.
 
 Before a public launch:
 

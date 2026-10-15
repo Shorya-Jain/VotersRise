@@ -1,22 +1,37 @@
-name: Release checks
+name: CI
+
+# Runs on every pull request, including from forks. `pull_request` (not
+# `pull_request_target`) gives fork PRs a read-only token and no secrets.
 on:
-  push:
   pull_request:
+  push:
+    branches: [main]
+
 permissions:
   contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  check:
+  build:
+    name: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     env:
       ASTRO_TELEMETRY_DISABLED: '1'
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: '24'
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
           cache: npm
-      - run: npm ci
-      - run: npm run check
+      - run: npm ci --ignore-scripts
+      - name: Type-check and lint (astro check)
+        run: npm run check
       - run: npm run build
       - run: npm run links
       - run: npm run test:release
