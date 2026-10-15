@@ -17,43 +17,56 @@
    unicode-range, so each page fetches just the scripts it needs. */
 
 :root {
-  --ink: #3d2a7a; /* the violet of election ink */
-  --ink-strong: #2a1b5c;
-  --ink-soft: #ece8f7;
-  --accent: #b45309;
-  --accent-soft: #fdf2e3;
-  --ok: #166534;
-  --ok-soft: #e7f5ec;
-  --text: #1c1b22;
-  --muted: #55525f;
-  --bg: #fbfaf7;
+  --ink: #263f70;
+  --ink-strong: #202329;
+  --ink-soft: #eceff5;
+  --accent: #90441f;
+  --accent-soft: #f8eee4;
+  --ok: #355777;
+  --ok-soft: #edf1f5;
+  --text: #27292d;
+  --muted: #5c616a;
+  --bg: #faf9f6;
   --surface: #ffffff;
-  --border: #dedbe6;
-  --radius: 14px;
-  --gap: 16px;
+  --border: #d4d5d7;
+  --control-border: #777d88;
+  --button-text: #ffffff;
+  --radius: 3px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --gap: clamp(20px, 4vw, 48px);
   --font: 'Noto Sans Variable', 'Noto Sans Devanagari Variable', 'Noto Sans Bengali Variable',
     'Noto Sans Gurmukhi Variable', 'Noto Sans Gujarati Variable', 'Noto Sans Oriya Variable',
     'Noto Sans Tamil Variable', 'Noto Sans Telugu Variable', 'Noto Sans Kannada Variable',
     'Noto Sans Malayalam Variable', 'Noto Sans Meetei Mayek Variable', 'Noto Sans Ol Chiki Variable',
     'Noto Naskh Arabic Variable', system-ui, sans-serif;
-  --line: 1.6;
+  --heading-font: Georgia, 'Times New Roman', var(--font);
+  --line: 1.65;
   color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --ink: #b9a6ff;
-    --ink-strong: #d6cbff;
-    --ink-soft: #2a2442;
-    --accent: #f5a524;
-    --accent-soft: #3a2c14;
-    --ok: #7bd99a;
-    --ok-soft: #173123;
-    --text: #ecebf2;
-    --muted: #b3b0bf;
-    --bg: #14131a;
-    --surface: #1d1c25;
-    --border: #34323f;
+    --ink: #b8cbed;
+    --ink-strong: #e1e7f1;
+    --ink-soft: #252e3e;
+    --accent: #efb28d;
+    --accent-soft: #382a21;
+    --ok: #bfd0e5;
+    --ok-soft: #27313e;
+    --text: #ececef;
+    --muted: #b5b9c3;
+    --bg: #191b20;
+    --surface: #22252c;
+    --border: #484d57;
+    --control-border: #9096a3;
+    --button-text: #182135;
   }
 }
 
@@ -85,47 +98,47 @@ body {
   overflow-wrap: break-word;
 }
 
-h1, h2, h3 { line-height: 1.3; color: var(--ink-strong); margin-block: 0 0.5em; }
+h1, h2, h3, h4 { line-height: 1.2; color: var(--ink-strong); margin-block: 0 0.6em; }
+h1, h2 { font-family: var(--heading-font); font-weight: 400; text-wrap: balance; }
 :lang(ur) :is(h1, h2, h3), :lang(ks) :is(h1, h2, h3) { line-height: 1.9; }
-h1 { font-size: clamp(1.75rem, 6vw, 2.5rem); font-weight: 750; }
-h2 { font-size: clamp(1.35rem, 4.5vw, 1.75rem); font-weight: 700; margin-block-start: 2rem; }
-h3 { font-size: 1.15rem; font-weight: 650; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.5rem); letter-spacing: -0.035em; }
+h2 { font-size: clamp(1.65rem, 3vw, 2.25rem); letter-spacing: -0.025em; margin-block-start: var(--space-12); }
+h3 { font-size: 1.125rem; font-weight: 650; }
 p { margin-block: 0 1em; }
-a { color: var(--ink); text-underline-offset: 0.18em; }
-a:hover { color: var(--ink-strong); }
-strong { font-weight: 700; }
-ul, ol { padding-inline-start: 1.25em; margin-block: 0 1em; }
-li + li { margin-block-start: 0.35em; }
+a { color: var(--ink); text-underline-offset: 0.22em; text-decoration-thickness: 1px; }
+a:hover { color: var(--ink-strong); text-decoration-thickness: 2px; }
+strong { font-weight: 650; }
+ul, ol { padding-inline-start: 1.4em; margin-block: 0 1em; }
+li + li { margin-block-start: var(--space-2); }
 
-:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
 
-.container { width: 100%; max-width: 46rem; margin-inline: auto; padding-inline: var(--gap); }
-.lead { font-size: 1.15rem; color: var(--muted); }
-.muted { color: var(--muted); font-size: 0.95rem; }
+.container { width: 100%; max-width: 76rem; margin-inline: auto; padding-inline: var(--gap); }
+.lead { font-size: clamp(1.0625rem, 2vw, 1.2rem); color: var(--muted); line-height: 1.7; }
+.muted { color: var(--muted); font-size: 0.9375rem; }
+.eyebrow { font-size: 0.75rem; font-weight: 650; letter-spacing: 0.11em; text-transform: uppercase; color: var(--muted); }
 
 .skip {
   position: absolute; inset-inline-start: -999px; top: 0; z-index: 10;
-  background: var(--ink); color: #fff; padding: 12px 16px;
+  background: var(--ink); color: var(--button-text); padding: var(--space-3) var(--space-4);
 }
-.skip:focus { inset-inline-start: 8px; top: 8px; }
+.skip:focus { inset-inline-start: var(--space-2); top: var(--space-2); }
 
 .button {
-  display: inline-flex; align-items: center; justify-content: center; gap: 0.5em;
-  min-height: 52px; padding: 12px 20px; border-radius: 999px;
-  background: var(--ink); color: #fff; font-weight: 650; text-decoration: none;
-  text-align: center;
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-3);
+  min-height: 48px; padding: var(--space-3) var(--space-6); border-radius: var(--radius);
+  border: 1px solid var(--ink-strong); background: var(--ink-strong); color: var(--button-text);
+  font-size: 1rem; font-weight: 600; text-decoration: none; text-align: center;
 }
-.button:hover { background: var(--ink-strong); color: #fff; }
-@media (prefers-color-scheme: dark) {
-  .button, .button:hover { color: #14131a; }
-}
-.button.secondary { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+.button:hover { background: var(--text); border-color: var(--text); color: var(--button-text); text-decoration: none; }
+.button.secondary { background: transparent; color: var(--ink); border-color: var(--control-border); }
 .button.secondary:hover { background: var(--ink-soft); color: var(--ink-strong); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(20px, 3vw, 28px); }
+.stack > * + * { margin-block-start: var(--space-4); }
 
-.card {
-  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 18px;
+@media (max-width: 380px) {
+  .button { padding-inline: var(--space-4); }
 }
-
-.stack > * + * { margin-block-start: 12px; }
-
+@media (forced-colors: active) {
+  .button, .card { border: 1px solid ButtonText; }
+}
