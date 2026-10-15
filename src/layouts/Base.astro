@@ -33,11 +33,9 @@ const nav = [
     <meta name="description" content={description ?? m.meta.description} />
     <link rel="canonical" href={new URL(path, site)} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    {path === "/404/" && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#3d2a7a" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description ?? m.meta.description} />
-    <meta property="og:url" content={new URL(path, site)} />
     <meta property="og:type" content="website" />
   </head>
   <body>

@@ -281,21 +281,18 @@
     "when": {
       "early2027": "early 2027",
       "late2027": "late 2027"
-    },
-    "notice": "Some schedule changes still need an official source check. Do not use this page alone to decide when to apply.",
-    "noSchedules": "We have not verified the current schedules for publication. Use the official ECI website to check current election and voter list dates.",
-    "officialLink": "Check current dates on the ECI website"
+    }
   },
   "about": {
     "title": "About VotersRise",
     "lead": "VotersRise is a free, independent guide for voters in India.",
-    "why": "Use this site to check your voter registration or prepare an application. The guides use short instructions and consistent terms. The English instructions use ASD Simplified Technical English writing conventions.",
+    "why": "Every election, people find out too late that their name is missing, or they are stuck in a city far from where they are registered. The official information exists, but it is spread across many websites and is hard to follow. We put the key steps in one place, in plain language, in every scheduled language of India.",
     "independentTitle": "Independent",
     "independent": "We are not part of ECI or a political party. This site has no application forms, advertising, or analytics. Submit voter applications on official ECI websites.",
     "accuracyTitle": "How we check facts",
     "accuracy": "Each guide lists its sources. Rules and dates can change. Confirm the current requirements on the official website before you apply.",
     "translationTitle": "About the translations",
-    "translation": "The source text is in English. Select another language to open the page through Google Translate. Google receives the page text for translation. Translations can contain errors. If an instruction is unclear, read the English page or check the official website."
+    "translation": "We write every page in English. When you choose another language, the page opens through Google Translate, so its text is sent to Google for translation. Machine translation can make mistakes. If something is unclear, switch back to English or check the official website. Google Translate does not support Bodo and Kashmiri yet."
   },
   "notFound": {
     "title": "Page not found",

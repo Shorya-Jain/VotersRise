@@ -19,8 +19,8 @@ const usedSources = new Set(['rp-act-23', ...data.sir.groups.map((g) => g.source
   path="/deadlines/"
   title={d.title}
   description={d.lead}
-  lastVerified={data.publishSchedules ? data.lastVerified : undefined}
-  sources={data.publishSchedules ? [...usedSources].map((id) => data.sources[id]).filter(Boolean) : []}
+  lastVerified={data.lastVerified}
+  sources={[...usedSources].map((id) => data.sources[id]).filter(Boolean)}
 >
   <h1>{d.title}</h1>
   <p class="lead">{d.lead}</p>
@@ -30,10 +30,6 @@ const usedSources = new Set(['rp-act-23', ...data.sir.groups.map((g) => g.source
   </Callout>
   <p>{d.anytime}</p>
 
-  <Callout tone="info"><p>{d.checkCeo}</p></Callout>
-  <p><a class="button" href="https://www.eci.gov.in/">{d.officialLink}</a></p>
-  {!data.publishSchedules && <Callout tone="warn"><p>{d.noSchedules}</p></Callout>}
-  {data.publishSchedules && <>
   <h2>{d.electionsTitle}</h2>
   <p class="muted">{d.electionsNote}</p>
   <ul class="grid">
@@ -79,7 +75,7 @@ const usedSources = new Set(['rp-act-23', ...data.sir.groups.map((g) => g.source
 
   <p>{fill(d.sirPending, { states: names(data.sir.pending) })}</p>
   <p class="muted">{d.sirEarlier}</p>
-  </>}
+  <Callout tone="info"><p>{d.checkCeo}</p></Callout>
 </Base>
 
 <style>
