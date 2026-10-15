@@ -30,11 +30,18 @@ Edit `src/data/elections.json` (checked by `src/data/elections.ts`): add
 `lastDateOfNominations` when ECI announces an election, and update SIR dates
 from ECI press notes. Rebuild and deploy.
 
-## Deploy (Cloudflare, free tier)
-```sh
-npx wrangler login   # once
-npm run deploy
-```
+## Deploy (Cloudflare Pages, free tier)
+Deploys are automatic. Cloudflare Pages is connected to this GitHub repository and
+builds every push to `main`:
+
+- Build command `npm run build`, output `dist`, Node.js from `.node-version`.
+- Production: https://votersrise.pages.dev
+- A failed build does not replace the live site.
+- Pull requests and other branches get preview builds only, never production.
+  Pull requests from forks are not built by Cloudflare.
+- No Cloudflare credentials are stored in GitHub.
+
+`main` is protected: open a pull request, wait for the `build` check, then merge.
 
 ## Contribute
 See [CONTRIBUTING.md](CONTRIBUTING.md).

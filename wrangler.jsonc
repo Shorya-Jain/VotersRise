@@ -1,9 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
+  // Cloudflare Pages project. Builds run on Cloudflare from GitHub: every push to
+  // main deploys to production. See README "Deploy".
   "name": "votersrise",
   "compatibility_date": "2026-10-01",
-  "assets": {
-    "directory": "./dist",
-    "not_found_handling": "404-page"
-  }
+  "pages_build_output_dir": "./dist"
 }
