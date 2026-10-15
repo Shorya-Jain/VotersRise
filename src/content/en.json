@@ -8,7 +8,7 @@
     "home": "Home",
     "check": "Check your name",
     "register": "Register",
-    "move": "Change address",
+    "move": "Moved for work?",
     "deadlines": "Deadlines",
     "about": "About",
     "menu": "Menu",
@@ -38,8 +38,8 @@
         "body": "Never registered? Apply with Form 6. It is free."
       },
       "move": {
-        "title": "Did you change your address?",
-        "body": "Use Form 8 to change the address in your voter registration."
+        "title": "Moved to a new city for work?",
+        "body": "Renting away from home for work or study? Use Form 8 to change your voter registration address."
       },
       "deadlines": {
         "title": "Deadlines",
@@ -84,7 +84,7 @@
       },
       {
         "title": "Ask your BLO",
-        "body": "A Booth Level Officer (BLO) helps maintain the voter list for your area. Ask the voter helpline how to contact your BLO."
+        "body": "A Booth Level Officer (BLO) helps maintain the voter list for your area. Use **Book-a-call with BLO** on ECINET to contact your BLO. You can also ask the voter helpline for help."
       }
     ],
     "notFoundTitle": "If you cannot find your name",
@@ -104,7 +104,7 @@
     "whoTitle": "Who can apply",
     "who": [
       "You are a citizen of India.",
-      "You must be 18 on a qualifying date: 1 January, 1 April, 1 July, or 1 October. If you are 17, ask your BLO about an advance application.",
+      "You must be 18 on a qualifying date: 1 January, 1 April, 1 July, or 1 October. If you are 17, you can apply in advance with Form 6. Registration takes effect for the qualifying date when you meet the age requirement.",
       "You normally live at the address where you apply.",
       "You are not registered at another address. You meet the other legal requirements for voter registration."
     ],
@@ -162,8 +162,8 @@
         "body": "A BLO may visit your address. Keep your original documents available for the check."
       },
       {
-        "title": "Check the application status",
-        "body": "Use the reference number to track your application on the voter portal. After approval, check your name on the voter list."
+        "title": "Track the application and get your voter ID",
+        "body": "Use the reference number to track your application on the voter portal. After approval, check your name on the voter list. Download your e-EPIC, the digital voter ID, from the voter portal. Your voter ID card is delivered free by Speed Post."
       }
     ],
     "offlineTitle": "Prefer paper?",
@@ -180,27 +180,28 @@
     "toDeadlines": "See upcoming deadlines"
   },
   "move": {
-    "title": "Change the address in your voter registration",
-    "lead": "You can register at only one address. This must be the place where you normally live. Use **Form 8** to apply for an address change.",
+    "title": "Moved to a new city for work?",
+    "lead": "Do you rent a room or flat away from home for work or study? You can register at only one address. This must be the place where you normally live. Use **Form 8** to apply for an address change.",
     "cta": "Open Form 8 on the ECI voter portal",
-    "problemTitle": "If you live away from your registered address",
+    "problemTitle": "Why tenants can miss voting",
     "problem": [
-      "Your voter registration can remain at your previous address after you move. You cannot use that registration to vote at a polling station near your new address.",
-      "Use Form 8 to apply for an address change if your normal place of residence has changed.",
-      "The address change must be approved before it takes effect. Check your name on the voter list after approval."
+      "Many people rent a room or flat in another constituency for work. Their voter registration stays at their previous address. Travel costs and time away from work can prevent them from returning to vote.",
+      "In the 2019 general election, turnout was 67.4%. More than 30 crore registered voters did not vote. ECI identified internal migration as one of the main reasons for missed votes.",
+      "In December 2022, ECI proposed a Remote Electronic Voting Machine (RVM) for people who move within India. The proposal would let them vote for their home constituency from a remote polling station.",
+      "The cited announcement describes a prototype and consultation. It does not confirm an available voting service. Check current ECI instructions for your election before you plan to use remote voting."
     ],
-    "decideTitle": "Check where you normally live",
-    "shiftTitle": "If your normal address has changed",
+    "decideTitle": "Should you change your registration?",
+    "shiftTitle": "Change it if your normal address has changed",
     "shift": [
-      "Apply for an address change with Form 8.",
-      "Give your current address in the application.",
-      "Check the voter list after the application is approved."
+      "You now normally live in this city for work or study.",
+      "You plan to stay and want to vote where you live.",
+      "Apply with Form 8 before the election deadline. Check your name on the voter list after approval."
     ],
-    "stayTitle": "If you are away for a short time",
+    "stayTitle": "Keep it at home if your absence is temporary",
     "stay": [
-      "A temporary absence does not by itself change your normal place of residence.",
-      "Ask your ERO if you are not sure which address applies.",
-      "Check your name on the voter list before the election."
+      "Your home remains your normal place of residence.",
+      "You are away for a short time and plan to return.",
+      "Plan your travel to your registered polling station for election day. Ask your ERO if you are unsure which address applies."
     ],
     "decideNote": "Do not register at two addresses. Your property ownership or travel plans do not by themselves determine your normal place of residence.",
     "proofTitle": "Address proof for renters",
@@ -214,10 +215,12 @@
       "Land records, including Kisan Bahi",
       "Registered sale deed"
     ],
-    "tipsTitle": "If you do not have a listed document",
+    "tipsTitle": "Address proof for tenants and students",
     "tips": [
-      "Ask your BLO or ERO about other proof of address.",
-      "Use the field for other documents if the officer confirms that it applies.",
+      "If needed, update the address in your bank account or Aadhaar first. Use the updated document as proof.",
+      "Ask your landlord or paying guest accommodation owner for a registered rent agreement.",
+      "Eligible students can register at their hostel address where they normally live.",
+      "If you have no listed document, ask your BLO or ERO about other proof of address.",
       "Do not submit false documents."
     ],
     "stepsTitle": "Apply for an address change in 6 steps",
