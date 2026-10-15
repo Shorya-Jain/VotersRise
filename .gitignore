@@ -5,3 +5,4 @@ dist/
 scripts/translate/.venv/
 __pycache__/
 .DS_Store
+.reticle/

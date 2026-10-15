@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
+    "@reticlehq/react": "^3.7.0",
     "linkinator": "8.1.0",
     "tsx": "4.23.15",
     "typescript": "6.0.3",

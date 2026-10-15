@@ -29,6 +29,15 @@ const nav = [
   ['/about/', m.nav.about],
 ] as const;
 const englishLocale = locales[0];
+import { readFileSync as reticleReadFileSync } from 'node:fs';
+import { homedir as reticleHomedir } from 'node:os';
+import { join as reticleJoin } from 'node:path';
+const pairingToken = (() => {
+  if (!import.meta.env.DEV) return '';
+  const dir = process.env['RETICLE_PAIRING_TOKEN_DIR'] || reticleJoin(reticleHomedir(), '.reticle');
+  try { return reticleReadFileSync(reticleJoin(dir, 'pairing-token'), 'utf8').trim(); } catch { return ''; }
+})();
+const pairingRoot = import.meta.env.DEV ? process.cwd() : '';
 ---
 <!doctype html>
 <html lang={locale.code} dir={locale.dir}>
@@ -99,7 +108,15 @@ const englishLocale = locales[0];
         <p class="muted">{m.common.notAffiliated}</p>
       </div>
     </footer>
-  </body>
+      <meta name="reticle-pairing-token" content={pairingToken} />
+    <meta name="reticle-pairing-root" content={pairingRoot} />
+    <script>
+      import connectReticle from '../components/ReticleDev';
+      if (import.meta.env.DEV) {
+        connectReticle();
+      }
+    </script>
+</body>
 </html>
 
 <style>
@@ -110,9 +127,13 @@ const englishLocale = locales[0];
     font-weight: 750; font-size: 1.15rem; color: var(--ink-strong); text-decoration: none;
     font-family: 'Noto Sans Variable', system-ui, sans-serif;
   }
+  /* One swipeable row on phones instead of wrapping into several. */
   .nav {
-    list-style: none; margin: 0; padding: 0 0 10px; display: flex; flex-wrap: wrap; gap: 8px;
+    list-style: none; margin: 0; padding: 0 0 10px; display: flex; gap: 8px;
+    overflow-x: auto; scrollbar-width: none;
   }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav li { flex: none; }
   .nav li + li { margin: 0; }
   .nav a {
     display: inline-flex; align-items: center; min-height: 44px; padding: 6px 14px;
