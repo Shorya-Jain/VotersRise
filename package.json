@@ -37,5 +37,6 @@
     "tsx": "4.23.15",
     "typescript": "6.0.3",
     "wrangler": "4.151.0"
-  }
+  },
+  "license": "MIT"
 }
