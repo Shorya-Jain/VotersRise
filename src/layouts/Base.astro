@@ -33,7 +33,7 @@ const nav = [
     <title>{fullTitle}</title>
     <meta name="description" content={description ?? m.meta.description} />
     <link rel="canonical" href={new URL(path, site)} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/logo.svg" type="image/svg+xml" />
     <meta name="theme-color" content="#faf9f6" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description ?? m.meta.description} />
@@ -44,7 +44,7 @@ const nav = [
     <header class="site-header">
       <div class="container bar">
         <a class="brand" href="/" translate="no">
-          <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="3" fill="var(--ink-strong)"/><path d="M9 6c0 0 4 7 4 13a3 3 0 0 1-6 0c0-6 2-13 2-13z" fill="var(--button-text)"/><path d="M15 21l4 4 8-11" stroke="var(--button-text)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <img src="/logo.svg" width="40" height="40" alt="" aria-hidden="true" />
           <span>{m.meta.siteName}</span>
         </a>
         <LanguageSwitcher path={path} label={m.nav.language} />
@@ -98,6 +98,7 @@ const nav = [
     font-family: var(--heading-font); font-size: 1.75rem; font-weight: 700;
     letter-spacing: -0.04em; color: var(--ink-strong); text-decoration: none;
   }
+  .brand img { display: block; flex: none; width: 40px; height: 40px; object-fit: contain; }
   .nav { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--space-8); }
   .nav li { margin: 0; }
   .nav a {
@@ -118,6 +119,7 @@ const nav = [
   @media (max-width: 600px) {
     .bar { min-height: 76px; }
     .brand { font-size: 1.5rem; gap: var(--space-2); }
+    .brand img { width: 32px; height: 32px; }
     .nav { gap: 0 var(--space-4); }
     .nav a { font-size: 0.875rem; }
     .footer-grid { grid-template-columns: 1fr; gap: var(--space-6); }
