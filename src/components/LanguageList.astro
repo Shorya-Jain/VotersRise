@@ -1,0 +1,41 @@
+---
+// Language links. Each opens this page through Google Translate's website proxy
+// (https://<host>.translate.goog/...), which translates it and keeps the layout.
+import { languages, proxyUrl } from '../lib/languages';
+
+interface Props { path: string; variant: 'menu' | 'grid' }
+const { path, variant } = Astro.props;
+const site = Astro.site!;
+---
+<ul class:list={['langs', variant]} translate="no">
+  {languages.map((l) => (
+    <li>
+      <a
+        href={l.code === 'en' ? path : proxyUrl(site, path, l.code)}
+        lang={l.code}
+        aria-current={l.code === 'en' ? 'true' : undefined}
+      >
+        {l.name}{variant === 'menu' && l.code !== 'en' && <span class="en" lang="en"> · {l.englishName}</span>}
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .langs { list-style: none; margin: 0; padding: 0; }
+  .langs li { margin: 0; }
+  .menu a {
+    display: flex; align-items: center; min-height: 44px; padding: 4px 12px; border-radius: 8px;
+    color: var(--text); text-decoration: none;
+  }
+  .menu a:hover { background: var(--ink-soft); }
+  .menu a[aria-current] { font-weight: 700; color: var(--ink-strong); background: var(--ink-soft); }
+  .en { color: var(--muted); font-size: 0.9em; white-space: pre; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); gap: 8px; }
+  .grid a {
+    display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 6px 10px;
+    border: 1px solid var(--border); border-radius: 10px; background: var(--surface);
+    text-decoration: none; color: var(--ink-strong); font-weight: 600; text-align: center;
+  }
+  .grid a[aria-current] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+</style>

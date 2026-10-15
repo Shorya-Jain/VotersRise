@@ -1,0 +1,48 @@
+---
+import Base from '../layouts/Base.astro';
+import Illustration from '../components/Illustration.astro';
+import LanguageList from '../components/LanguageList.astro';
+import { m } from '../lib/text';
+
+const tasks = [
+  { href: '/check/', ill: 'search', ...m.home.tasks.check },
+  { href: '/register/', ill: 'form', ...m.home.tasks.register },
+  { href: '/move/', ill: 'move', ...m.home.tasks.move },
+  { href: '/deadlines/', ill: 'receipt', ...m.home.tasks.deadlines },
+] as const;
+---
+<Base path="/" title={m.home.title}>
+  <h1>{m.home.title}</h1>
+  <p class="lead">{m.home.lead}</p>
+
+  <ul class="tasks">
+    {tasks.map((t) => (
+      <li>
+        <a class="card task" href={t.href}>
+          <Illustration name={t.ill} />
+          <span>
+            <strong>{t.title}</strong>
+            <span class="muted">{t.body}</span>
+          </span>
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <h2>{m.home.whyTitle}</h2>
+  <p>{m.home.why}</p>
+
+  <h2>{m.home.languagesTitle}</h2>
+  <p class="muted">{m.home.languagesNote}</p>
+  <LanguageList path="/" variant="grid" />
+</Base>
+
+<style>
+  .tasks { list-style: none; padding: 0; display: grid; gap: 12px; margin-block: 24px; }
+  .tasks li { margin: 0; }
+  .task { display: flex; gap: 14px; align-items: center; text-decoration: none; color: var(--text); min-height: 96px; }
+  .task:hover { border-color: var(--ink); }
+  .task strong { display: block; font-size: 1.15rem; color: var(--ink-strong); margin-block-end: 2px; }
+  .task .muted { display: block; }
+  @media (min-width: 720px) { .tasks { grid-template-columns: 1fr 1fr; } }
+</style>

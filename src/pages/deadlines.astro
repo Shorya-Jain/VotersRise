@@ -1,17 +1,13 @@
 ---
-import Base from '../../layouts/Base.astro';
-import Callout from '../../components/Callout.astro';
-import { getLocale, localeStaticPaths } from '../../i18n/locales';
-import { getMessages, rich, fill, formatDate } from '../../i18n/t';
-import { data } from '../../data/elections';
+import Base from '../layouts/Base.astro';
+import Callout from '../components/Callout.astro';
+import { m, rich, fill, formatDate } from '../lib/text';
+import { data } from '../data/elections';
 
-export const getStaticPaths = localeStaticPaths;
-const locale = getLocale(Astro.params.locale);
-const m = getMessages(locale.code);
 const d = m.deadlines;
 const states = m.states as Record<string, string>;
 const names = (codes: string[]) => codes.map((c) => states[c] ?? c).join(', ');
-const date = (iso: string) => formatDate(iso, locale);
+const date = (iso: string) => formatDate(iso);
 
 // Split by the build date; redeploy to move finished revisions down.
 const today = new Date().toISOString().slice(0, 10);
@@ -20,7 +16,6 @@ const done = data.sir.groups.filter((g) => g.final < today);
 const usedSources = new Set(['rp-act-23', ...data.sir.groups.map((g) => g.source), ...data.elections.flatMap((e) => e.source ?? [])]);
 ---
 <Base
-  locale={locale}
   path="/deadlines/"
   title={d.title}
   description={d.lead}

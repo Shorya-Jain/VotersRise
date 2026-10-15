@@ -5,8 +5,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
-    "check:i18n": "tsx scripts/i18n-check.ts",
-    "build": "npm run check:i18n && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
     "links": "linkinator dist --recurse --skip '^(?!file://)'",
@@ -34,7 +33,6 @@
     "@astrojs/check": "0.9.10",
     "@reticlehq/react": "^3.7.0",
     "linkinator": "8.1.0",
-    "tsx": "4.23.15",
     "typescript": "6.0.3",
     "wrangler": "4.151.0"
   },

@@ -1,24 +1,17 @@
 ---
-import { locales, type Locale } from '../i18n/locales';
-import { localePath } from '../i18n/t';
+import LanguageList from './LanguageList.astro';
 
-interface Props { locale: Locale; path: string; label: string }
-const { locale, path, label } = Astro.props;
+interface Props { path: string; label: string }
+const { path, label } = Astro.props;
 ---
 <details class="lang">
   <summary aria-label={label}>
     <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
-    <span>{locale.name}</span>
+    <span translate="no">English</span>
   </summary>
-  <ul>
-    {locales.map((l) => (
-      <li>
-        <a href={localePath(l, path)} lang={l.code} hreflang={l.code} aria-current={l.code === locale.code ? 'true' : undefined}>
-          {l.name}{l.code !== 'en' && <span class="en" lang="en"> · {l.englishName}</span>}
-        </a>
-      </li>
-    ))}
-  </ul>
+  <div class="panel">
+    <LanguageList path={path} variant="menu" />
+  </div>
 </details>
 
 <style>
@@ -29,18 +22,10 @@ const { locale, path, label } = Astro.props;
     color: var(--ink-strong); font-weight: 600;
   }
   summary::-webkit-details-marker { display: none; }
-  ul {
-    position: absolute; inset-inline-end: 0; z-index: 5; margin: 6px 0 0; padding: 6px;
-    list-style: none; width: min(18rem, calc(100vw - 32px)); max-height: 70vh; overflow-y: auto;
+  .panel {
+    position: absolute; inset-inline-end: 0; z-index: 5; margin-block-start: 6px; padding: 6px;
+    width: min(18rem, calc(100vw - 32px)); max-height: 70vh; overflow-y: auto;
     background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
     box-shadow: 0 10px 30px rgb(0 0 0 / 0.15);
   }
-  li + li { margin: 0; }
-  a {
-    display: flex; align-items: center; min-height: 44px; padding: 4px 12px; border-radius: 8px;
-    color: var(--text); text-decoration: none;
-  }
-  a:hover { background: var(--ink-soft); }
-  a[aria-current] { font-weight: 700; color: var(--ink-strong); background: var(--ink-soft); }
-  .en { color: var(--muted); font-size: 0.9em; white-space: pre; }
 </style>

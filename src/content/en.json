@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "VotersRise",
     "tagline": "Make sure your vote counts",
-    "description": "Free, simple guides to check the voter list, register to vote, move your vote to a new city, and know the deadlines. In 23 languages."
+    "description": "Free, simple guides to check the voter list, register to vote, move your vote to a new city, and know the deadlines. Read it in your language."
   },
   "nav": {
     "home": "Home",
@@ -23,8 +23,6 @@
     "sources": "Sources",
     "opensOfficial": "Official site",
     "step": "Step {n}",
-    "machineBanner": "This page was translated by a computer and has not been checked by a person yet. Some words may be wrong. Official forms are on voters.eci.gov.in.",
-    "readInEnglish": "Read in English",
     "otpWarning": "Never share your OTP with anyone. Officials will never ask for it."
   },
   "home": {
@@ -50,7 +48,8 @@
     },
     "languagesTitle": "Read this site in your language",
     "whyTitle": "Why check?",
-    "why": "You can vote only if your name is on the voter list for your area. Having a voter ID card is not enough. Names can be removed when people move or when the list is revised. Check before every election."
+    "why": "You can vote only if your name is on the voter list for your area. Having a voter ID card is not enough. Names can be removed when people move or when the list is revised. Check before every election.",
+    "languagesNote": "Pages are translated by Google Translate, which can make mistakes. Official forms are on voters.eci.gov.in."
   },
   "check": {
     "title": "Is your name on the voter list?",
@@ -293,7 +292,7 @@
     "accuracyTitle": "How we check facts",
     "accuracy": "Every step on this site comes from official ECI forms, guidelines and press notes. Each page shows when it was last checked and lists its sources. Rules and dates change, so always confirm on the official website.",
     "translationTitle": "About the translations",
-    "translation": "The English text is written first. The other 22 languages are translated by a computer using IndicTrans2, an open-source model built for Indian languages by AI4Bharat. Pages that have not yet been checked by a native speaker show a notice at the top."
+    "translation": "We write every page in English. When you choose another language, the page opens through Google Translate, so its text is sent to Google for translation. Machine translation can make mistakes. If something is unclear, switch back to English or check the official website. Google Translate does not support Bodo and Kashmiri yet."
   },
   "notFound": {
     "title": "Page not found",

@@ -1,19 +1,14 @@
 ---
-import Base from '../../layouts/Base.astro';
-import StepList from '../../components/StepList.astro';
-import ExternalCTA from '../../components/ExternalCTA.astro';
-import Callout from '../../components/Callout.astro';
-import RichList from '../../components/RichList.astro';
-import { getLocale, localeStaticPaths } from '../../i18n/locales';
-import { getMessages, localePath, rich } from '../../i18n/t';
+import Base from '../layouts/Base.astro';
+import StepList from '../components/StepList.astro';
+import ExternalCTA from '../components/ExternalCTA.astro';
+import Callout from '../components/Callout.astro';
+import RichList from '../components/RichList.astro';
+import { m, rich } from '../lib/text';
 
-export const getStaticPaths = localeStaticPaths;
-const locale = getLocale(Astro.params.locale);
-const m = getMessages(locale.code);
 const c = m.check;
 ---
 <Base
-  locale={locale}
   path="/check/"
   title={c.title}
   description={c.lead}
@@ -46,8 +41,8 @@ const c = m.check;
     <RichList items={c.notFound} ordered />
   </Callout>
   <p class="links">
-    <a class="button" href={localePath(locale, '/register/')}>{c.toRegister}</a>
-    <a class="button secondary" href={localePath(locale, '/move/')}>{c.toMove}</a>
+    <a class="button" href={'/register/'}>{c.toRegister}</a>
+    <a class="button secondary" href={'/move/'}>{c.toMove}</a>
   </p>
 </Base>
 

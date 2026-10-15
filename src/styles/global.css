@@ -128,3 +128,4 @@ li + li { margin-block-start: 0.35em; }
 }
 
 .stack > * + * { margin-block-start: 12px; }
+

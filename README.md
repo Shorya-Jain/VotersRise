@@ -2,7 +2,7 @@
 
 A free, non-commercial guide that helps people in India check the voter list,
 register to vote, move their vote when they move city, and know the deadlines.
-In English and all 22 scheduled languages.
+Written in English, readable in 20 Indian languages through Google Translate.
 
 Not affiliated with the Election Commission of India. All applications happen
 on official ECI websites.
@@ -11,15 +11,17 @@ on official ECI websites.
 ```sh
 npm install
 npm run dev        # http://localhost:4321
-npm run build      # static site in dist/ (runs the translation check first)
+npm run build      # static site in dist/
 npm run preview
 ```
 
 ## Change the content
-1. Edit the English text in `src/i18n/messages/en.json`. Keep sentences short and plain.
-2. Re-translate the changed strings (see `scripts/translate/README.md`):
-   `scripts/translate/.venv/bin/python scripts/translate/translate.py`
-3. `npm run build` fails if any language is missing a string or broke a link or `{placeholder}`.
+1. Edit the English text in `src/content/en.json`. Keep sentences short and plain.
+2. `npm run build` and check the page.
+
+Translations are not stored here: the language menu opens each page through Google
+Translate's website proxy (`<host>.translate.goog`). That only works on the public site,
+so keep `site` in `astro.config.mjs` set to the real URL.
 
 Every fact must come from an official source listed on the page. See `CLAUDE.md`.
 

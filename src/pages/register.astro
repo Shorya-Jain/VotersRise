@@ -1,19 +1,14 @@
 ---
-import Base from '../../layouts/Base.astro';
-import StepList from '../../components/StepList.astro';
-import ExternalCTA from '../../components/ExternalCTA.astro';
-import Callout from '../../components/Callout.astro';
-import RichList from '../../components/RichList.astro';
-import { getLocale, localeStaticPaths } from '../../i18n/locales';
-import { getMessages, localePath, rich } from '../../i18n/t';
+import Base from '../layouts/Base.astro';
+import StepList from '../components/StepList.astro';
+import ExternalCTA from '../components/ExternalCTA.astro';
+import Callout from '../components/Callout.astro';
+import RichList from '../components/RichList.astro';
+import { m, rich } from '../lib/text';
 
-export const getStaticPaths = localeStaticPaths;
-const locale = getLocale(Astro.params.locale);
-const m = getMessages(locale.code);
 const r = m.register;
 ---
 <Base
-  locale={locale}
   path="/register/"
   title={r.title}
   description={r.lead.replace(/\*\*/g, '')}
@@ -64,7 +59,7 @@ const r = m.register;
 
   <Callout tone="warn" title={r.timingTitle}>
     <p>{r.timing}</p>
-    <p><a href={localePath(locale, '/deadlines/')}>{r.toDeadlines}</a></p>
+    <p><a href={'/deadlines/'}>{r.toDeadlines}</a></p>
   </Callout>
   <p class="muted">{r.warning}</p>
 </Base>

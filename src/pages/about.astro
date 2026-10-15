@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import { m } from '../lib/text';
+
+const a = m.about;
+---
+<Base path="/about/" title={a.title} description={a.lead}>
+  <h1>{a.title}</h1>
+  <p class="lead">{a.lead}</p>
+  <p>{a.why}</p>
+  <h2>{a.independentTitle}</h2>
+  <p>{a.independent}</p>
+  <h2>{a.accuracyTitle}</h2>
+  <p>{a.accuracy}</p>
+  <h2>{a.translationTitle}</h2>
+  <p>{a.translation}</p>
+</Base>

@@ -1,0 +1,8 @@
+# Security updates for npm are turned on in the repo settings. This file only keeps
+# the pinned GitHub Actions above up to date.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

@@ -1,11 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import { defaultLocale } from '../i18n/locales';
-import { getMessages } from '../i18n/t';
-
-const m = getMessages('en');
+import { m } from '../lib/text';
 ---
-<Base locale={defaultLocale} path="/404/" alternates={false} title={m.notFound.title}>
+<Base path="/404/" title={m.notFound.title}>
   <h1>{m.notFound.title}</h1>
   <p><a href="/">{m.notFound.body}</a></p>
 </Base>

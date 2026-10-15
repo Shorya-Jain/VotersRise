@@ -5,7 +5,8 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   vite: {
     /* reticle-vite-owning */
-    build: { target: 'es2022' },
+    // assetsInlineLimit 0: keep scripts as files so the CSP can stay script-src 'self'.
+    build: { target: 'es2022', assetsInlineLimit: 0 },
     optimizeDeps: { include: ['@reticlehq/react'] },
     server: { watch: { ignored: [/(^|[\\/])\.reticle([\\/]|$)/] } },
   },
