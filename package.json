@@ -8,8 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "links": "linkinator dist --recurse --check-css --check-fragments --skip '^https?://(?!127\\.0\\.0\\.1(?::|/))'",
-    "deploy": "npm run build && wrangler deploy"
+    "links": "linkinator dist --recurse --check-css --check-fragments --skip '^https?://(?!127\\.0\\.0\\.1(?::|/))'"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",

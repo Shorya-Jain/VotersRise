@@ -21,4 +21,4 @@ A free, non-commercial guide that helps Indian voters check the voter list, regi
 ## Commands
 - `npm run dev` / `npm run build` / `npm run preview`
 - `npm run check` (types), `npm run links` (link checker on dist/)
-- `npm run deploy` (Cloudflare, needs `npx wrangler login` once)
+- Deploys are automatic: Cloudflare Pages builds and deploys every push to `main` (https://votersrise.pages.dev). `main` is protected, so changes go through a PR with passing CI.
