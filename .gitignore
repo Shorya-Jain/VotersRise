@@ -7,3 +7,6 @@ dist/
 
 # Local Claude Code skill (installed per developer, not part of the project)
 .claude/skills/karpathy-guidelines/
+
+# Local Cloudflare secrets for `wrangler pages dev`
+.dev.vars

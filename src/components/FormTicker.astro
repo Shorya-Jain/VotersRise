@@ -1,0 +1,17 @@
+---
+// Filled in by public/counter.js. Stays hidden without JavaScript or before the
+// first click is counted.
+import { m } from '../lib/text';
+const [before, after] = m.home.ticker.split('{count}');
+---
+<aside id="form-ticker" class="ticker" aria-live="polite" hidden>
+  <p class="figure">{before}<strong data-count translate="no"></strong>{after}</p>
+  <p class="muted">{m.home.tickerNote}</p>
+</aside>
+
+<style>
+  .ticker { border-block: 1px solid var(--border); padding-block: 12px; margin-block: 24px; }
+  .ticker p { margin: 0; }
+  .figure { font-size: 1.1rem; color: var(--ink-strong); }
+  .figure strong { font-variant-numeric: tabular-nums; }
+</style>
