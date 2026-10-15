@@ -48,3 +48,5 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Licence
 Code: [MIT](LICENSE). Guide text, translations and data: [CC BY 4.0](LICENSE-CONTENT.md).
+
+Logo artwork is separately licensed and is not covered by the licences above.

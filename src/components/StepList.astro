@@ -14,7 +14,7 @@ const { steps, illustrations, stepLabel } = Astro.props;
   {steps.map((s, i) => (
     <li>
       <div class="step-visual" aria-hidden="true">
-        {stepLabel ? <span class="step-number">{String(i + 1).padStart(2, '0')}</span> : <Illustration name={illustrations[i]} />}
+        <Illustration name={illustrations[i]} />
       </div>
       <div>
         {stepLabel && <p class="n">{fill(stepLabel, { n: i + 1 })}</p>}
@@ -27,14 +27,12 @@ const { steps, illustrations, stepLabel } = Astro.props;
 
 <style>
   .steps { list-style: none; padding: 0; margin-block: var(--space-6); border-block-start: 1px solid var(--border); }
-  .steps li { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: var(--space-6); align-items: start; margin: 0; padding-block: var(--space-6); border-block-end: 1px solid var(--border); }
+  .steps li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: var(--space-6); align-items: start; margin: 0; padding-block: var(--space-6); border-block-end: 1px solid var(--border); }
   .steps p:last-child { margin: 0; }
-  .step-visual :global(svg) { width: 48px; height: 36px; }
-  .step-number { font-family: var(--heading-font); font-size: 1.75rem; color: var(--muted); line-height: 1.2; }
+  .step-visual :global(svg) { width: 64px; height: 48px; }
   .n { margin: 0 0 var(--space-2); font-size: 0.75rem; font-weight: 650; letter-spacing: 0.08em; color: var(--muted); text-transform: uppercase; }
   @media (max-width: 420px) {
-    .steps li { grid-template-columns: 32px minmax(0, 1fr); gap: var(--space-4); }
-    .step-visual :global(svg) { width: 32px; height: 28px; }
-    .step-number { font-size: 1.4rem; }
+    .steps li { grid-template-columns: 48px minmax(0, 1fr); gap: var(--space-4); }
+    .step-visual :global(svg) { width: 48px; height: 36px; }
   }
 </style>
