@@ -5,11 +5,13 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npm run check:content && astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "links": "linkinator dist --recurse --skip '^(?!file://)'",
-    "deploy": "npm run build && wrangler deploy"
+    "links": "node scripts/check-links.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "check:content": "tsx scripts/content-check.ts",
+    "test:release": "node scripts/release-check.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",
@@ -31,10 +33,13 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
-    "@reticlehq/react": "^3.7.0",
     "linkinator": "8.1.0",
     "typescript": "6.0.3",
-    "wrangler": "4.151.0"
+    "wrangler": "4.151.0",
+    "tsx": "4.23.15"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  }
 }

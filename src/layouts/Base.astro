@@ -23,15 +23,6 @@ const nav = [
   ['/deadlines/', m.nav.deadlines],
   ['/about/', m.nav.about],
 ] as const;
-import { readFileSync as reticleReadFileSync } from 'node:fs';
-import { homedir as reticleHomedir } from 'node:os';
-import { join as reticleJoin } from 'node:path';
-const pairingToken = (() => {
-  if (!import.meta.env.DEV) return '';
-  const dir = process.env['RETICLE_PAIRING_TOKEN_DIR'] || reticleJoin(reticleHomedir(), '.reticle');
-  try { return reticleReadFileSync(reticleJoin(dir, 'pairing-token'), 'utf8').trim(); } catch { return ''; }
-})();
-const pairingRoot = import.meta.env.DEV ? process.cwd() : '';
 ---
 <!doctype html>
 <html lang="en">
@@ -42,9 +33,11 @@ const pairingRoot = import.meta.env.DEV ? process.cwd() : '';
     <meta name="description" content={description ?? m.meta.description} />
     <link rel="canonical" href={new URL(path, site)} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {path === "/404/" && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#3d2a7a" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description ?? m.meta.description} />
+    <meta property="og:url" content={new URL(path, site)} />
     <meta property="og:type" content="website" />
   </head>
   <body>
@@ -92,14 +85,6 @@ const pairingRoot = import.meta.env.DEV ? process.cwd() : '';
       </div>
     </footer>
 
-    <meta name="reticle-pairing-token" content={pairingToken} />
-    <meta name="reticle-pairing-root" content={pairingRoot} />
-    <script>
-      import connectReticle from '../components/ReticleDev';
-      if (import.meta.env.DEV) {
-        connectReticle();
-      }
-    </script>
   </body>
 </html>
 

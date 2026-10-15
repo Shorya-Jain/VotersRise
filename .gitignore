@@ -2,5 +2,12 @@ node_modules/
 dist/
 .astro/
 .wrangler/
+scripts/translate/.venv/
+__pycache__/
 .DS_Store
 .reticle/
+
+.env
+.env.*
+!.env.example
+.dev.vars
