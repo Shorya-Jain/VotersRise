@@ -5,8 +5,11 @@ import { languages, proxyUrl } from '../lib/languages';
 
 interface Props { path: string; variant: 'menu' | 'grid' }
 const { path, variant } = Astro.props;
-// Keep translations on the same deployment when reviewing a Pages preview.
-const site = new URL(process.env.CF_PAGES_URL || Astro.site!.href);
+// Previews translate their own deployment. Production always uses the stable site
+// URL: CF_PAGES_URL is a per-deployment snapshot address (e.g. https://df31b805.votersrise.pages.dev),
+// so shared or bookmarked translated links would keep showing an old version.
+const isPreview = process.env.CF_PAGES_BRANCH !== undefined && process.env.CF_PAGES_BRANCH !== 'main';
+const site = new URL(isPreview && process.env.CF_PAGES_URL ? process.env.CF_PAGES_URL : Astro.site!.href);
 ---
 <ul class:list={['langs', variant]} translate="no">
   {languages.map((l) => (
