@@ -23,3 +23,5 @@ export function formatDate(iso: string): string {
     new Date(`${iso}T00:00:00Z`),
   );
 }
+
+export const brokenOnPurpose: number = 'not a number';
