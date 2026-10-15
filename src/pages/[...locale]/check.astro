@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+import StepList from '../../components/StepList.astro';
+import ExternalCTA from '../../components/ExternalCTA.astro';
+import Callout from '../../components/Callout.astro';
+import RichList from '../../components/RichList.astro';
+import { getLocale, localeStaticPaths } from '../../i18n/locales';
+import { getMessages, localePath, rich } from '../../i18n/t';
+
+export const getStaticPaths = localeStaticPaths;
+const locale = getLocale(Astro.params.locale);
+const m = getMessages(locale.code);
+const c = m.check;
+---
+<Base
+  locale={locale}
+  path="/check/"
+  title={c.title}
+  description={c.lead}
+  lastVerified="2026-10-15"
+  sources={[
+    { label: 'ECI electoral search', url: 'https://electoralsearch.eci.gov.in/' },
+    { label: 'PIB: ECINET digital platform launched, 22 January 2026', url: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=2217429' },
+  ]}
+>
+  <h1>{c.title}</h1>
+  <p class="lead">{c.lead}</p>
+  <ExternalCTA href="https://electoralsearch.eci.gov.in/" label={c.cta} note={m.common.opensOfficial} />
+
+  <h2>{c.waysTitle}</h2>
+  <StepList steps={c.ways} illustrations={['card', 'pen', 'otp']} />
+  <Callout tone="warn"><p>{m.common.otpWarning}</p></Callout>
+
+  <h2>{c.resultTitle}</h2>
+  <p>{c.result}</p>
+
+  <h2>{c.otherTitle}</h2>
+  {c.other.map((o) => (
+    <section class="card other">
+      <h3>{o.title}</h3>
+      <p set:html={rich(o.body)} />
+    </section>
+  ))}
+
+  <Callout tone="info" title={c.notFoundTitle}>
+    <RichList items={c.notFound} ordered />
+  </Callout>
+  <p class="links">
+    <a class="button" href={localePath(locale, '/register/')}>{c.toRegister}</a>
+    <a class="button secondary" href={localePath(locale, '/move/')}>{c.toMove}</a>
+  </p>
+</Base>
+
+<style>
+  .other { margin-block-end: 12px; }
+  .other p { margin: 0; }
+  .links { display: flex; flex-direction: column; gap: 10px; max-width: 26rem; }
+</style>

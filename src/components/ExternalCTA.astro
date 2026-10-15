@@ -1,0 +1,15 @@
+---
+// Big button to an official site. Shows the domain so people know where they are going.
+interface Props { href: string; label: string; note: string }
+const { href, label, note } = Astro.props;
+const host = new URL(href).host;
+---
+<p class="cta">
+  <a class="button" href={href} rel="noopener">{label}</a>
+  <span class="muted">{note}: <bdi lang="en">{host}</bdi></span>
+</p>
+
+<style>
+  .cta { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-block: 20px; }
+  .button { width: 100%; max-width: 26rem; }
+</style>

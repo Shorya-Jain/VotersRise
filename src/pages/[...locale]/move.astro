@@ -1,0 +1,78 @@
+---
+import Base from '../../layouts/Base.astro';
+import StepList from '../../components/StepList.astro';
+import ExternalCTA from '../../components/ExternalCTA.astro';
+import Callout from '../../components/Callout.astro';
+import RichList from '../../components/RichList.astro';
+import { getLocale, localeStaticPaths } from '../../i18n/locales';
+import { getMessages, localePath, rich } from '../../i18n/t';
+
+export const getStaticPaths = localeStaticPaths;
+const locale = getLocale(Astro.params.locale);
+const m = getMessages(locale.code);
+const v = m.move;
+---
+<Base
+  locale={locale}
+  path="/move/"
+  title={v.title}
+  description={v.lead.replace(/\*\*/g, '')}
+  lastVerified="2026-10-15"
+  sources={[
+    { label: 'ECI: Form 8 guidelines', url: 'https://voters.eci.gov.in/guidelines/Form-8_en.pdf' },
+    { label: 'ECI: Form 8 (copy hosted by CEO Telangana)', url: 'https://ceotelangana.nic.in/Forms/Newforms_01_08_2022/Form-8_English.pdf' },
+    { label: 'PIB: ECI ready to pilot remote voting for domestic migrants, 29 December 2022', url: 'https://www.pib.gov.in/PressReleasePage.aspx?PRID=1887248' },
+    { label: 'Representation of the People Act, 1950, Sections 17 and 20' },
+  ]}
+>
+  <h1>{v.title}</h1>
+  <p class="lead" set:html={rich(v.lead)} />
+  <ExternalCTA href="https://voters.eci.gov.in/" label={v.cta} note={m.common.opensOfficial} />
+
+  <section class="problem">
+    <h2>{v.problemTitle}</h2>
+    {v.problem.map((p) => <p>{p}</p>)}
+  </section>
+
+  <h2>{v.decideTitle}</h2>
+  <div class="decide">
+    <section class="card yes">
+      <h3>{v.shiftTitle}</h3>
+      <RichList items={v.shift} check />
+    </section>
+    <section class="card no">
+      <h3>{v.stayTitle}</h3>
+      <RichList items={v.stay} check />
+    </section>
+  </div>
+  <Callout tone="warn"><p>{v.decideNote}</p></Callout>
+
+  <h2>{v.proofTitle}</h2>
+  <p>{v.proofLead}</p>
+  <RichList items={v.proof} check />
+  <Callout tone="ok" title={v.tipsTitle}>
+    <RichList items={v.tips} />
+  </Callout>
+
+  <h2>{v.stepsTitle}</h2>
+  <StepList
+    steps={v.steps}
+    illustrations={['search', 'otp', 'move', 'upload', 'visit', 'card']}
+    stepLabel={m.common.step}
+  />
+
+  <Callout tone="info" title={v.sirTitle}>
+    <p>{v.sir}</p>
+    <p><a href={localePath(locale, '/deadlines/')}>{v.toDeadlines}</a></p>
+  </Callout>
+</Base>
+
+<style>
+  .problem { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 4px 18px 6px; margin-block: 24px; }
+  .problem h2 { margin-block-start: 16px; }
+  .decide { display: grid; gap: 12px; }
+  .decide ul { margin: 0; }
+  .yes { border-top: 5px solid var(--ok); }
+  .no { border-top: 5px solid var(--ink); }
+  @media (min-width: 720px) { .decide { grid-template-columns: 1fr 1fr; } }
+</style>

@@ -1,0 +1,76 @@
+---
+import Base from '../../layouts/Base.astro';
+import StepList from '../../components/StepList.astro';
+import ExternalCTA from '../../components/ExternalCTA.astro';
+import Callout from '../../components/Callout.astro';
+import RichList from '../../components/RichList.astro';
+import { getLocale, localeStaticPaths } from '../../i18n/locales';
+import { getMessages, localePath, rich } from '../../i18n/t';
+
+export const getStaticPaths = localeStaticPaths;
+const locale = getLocale(Astro.params.locale);
+const m = getMessages(locale.code);
+const r = m.register;
+---
+<Base
+  locale={locale}
+  path="/register/"
+  title={r.title}
+  description={r.lead.replace(/\*\*/g, '')}
+  lastVerified="2026-10-15"
+  sources={[
+    { label: 'ECI: Form 6 guidelines', url: 'https://voters.eci.gov.in/guidelines/Form-6_en.pdf' },
+    { label: 'ECI: Form 6 (copy hosted by CEO Telangana)', url: 'https://ceotelangana.nic.in/Forms/Newforms_01_08_2022/Form-6_English.pdf' },
+    { label: 'Representation of the People Act, 1950, Sections 23(3) and 31' },
+  ]}
+>
+  <h1>{r.title}</h1>
+  <p class="lead" set:html={rich(r.lead)} />
+  <ExternalCTA href="https://voters.eci.gov.in/" label={r.cta} note={m.common.opensOfficial} />
+
+  <h2>{r.whoTitle}</h2>
+  <RichList items={r.who} check />
+
+  <h2>{r.docsTitle}</h2>
+  <div class="docs">
+    <section class="card">
+      <h3>{r.photoTitle}</h3>
+      <p>{r.photo}</p>
+    </section>
+    <section class="card">
+      <h3>{r.ageTitle}</h3>
+      <RichList items={r.age} />
+    </section>
+    <section class="card">
+      <h3>{r.addressTitle}</h3>
+      <RichList items={r.address} />
+    </section>
+  </div>
+  <Callout tone="info"><p>{r.docsNote}</p></Callout>
+
+  <h2>{r.stepsTitle}</h2>
+  <StepList
+    steps={r.steps}
+    illustrations={['portal', 'otp', 'form', 'pen', 'upload', 'receipt', 'visit', 'card']}
+    stepLabel={m.common.step}
+  />
+  <Callout tone="warn"><p>{m.common.otpWarning}</p></Callout>
+
+  <h2>{r.offlineTitle}</h2>
+  <p>{r.offline}</p>
+
+  <h2>{r.otherFormsTitle}</h2>
+  <RichList items={r.otherForms} />
+
+  <Callout tone="warn" title={r.timingTitle}>
+    <p>{r.timing}</p>
+    <p><a href={localePath(locale, '/deadlines/')}>{r.toDeadlines}</a></p>
+  </Callout>
+  <p class="muted">{r.warning}</p>
+</Base>
+
+<style>
+  .docs { display: grid; gap: 12px; }
+  .docs ul, .docs p { margin: 0; }
+  @media (min-width: 720px) { .docs { grid-template-columns: 1fr 1fr; } .docs > :first-child { grid-column: 1 / -1; } }
+</style>

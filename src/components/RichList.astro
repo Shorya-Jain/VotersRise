@@ -1,0 +1,18 @@
+---
+import { rich } from '../i18n/t';
+interface Props { items: string[]; ordered?: boolean; check?: boolean }
+const { items, ordered = false, check = false } = Astro.props;
+const Tag = ordered ? 'ol' : 'ul';
+---
+<Tag class:list={{ check }}>
+  {items.map((s) => <li set:html={rich(s)} />)}
+</Tag>
+
+<style>
+  .check { list-style: none; padding-inline-start: 0; }
+  .check li { position: relative; padding-inline-start: 1.9em; }
+  .check li::before {
+    content: ''; position: absolute; inset-inline-start: 0; top: 0.35em; width: 1.1em; height: 1.1em;
+    border-radius: 4px; border: 2px solid var(--ink); background: var(--surface);
+  }
+</style>

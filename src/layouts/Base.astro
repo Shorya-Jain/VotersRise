@@ -1,0 +1,131 @@
+---
+import '../styles/global.css';
+import { locales, type Locale } from '../i18n/locales';
+import { getMessages, localePath, rich, fill, formatDate } from '../i18n/t';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+
+interface Source { label: string; url?: string }
+interface Props {
+  locale: Locale;
+  /** Page path without the locale prefix, e.g. "/check/". */
+  path: string;
+  title: string;
+  description?: string;
+  lastVerified?: string;
+  sources?: Source[];
+  /** False for pages that exist only in English, like the 404 page. */
+  alternates?: boolean;
+}
+
+const { locale, path, title, description, lastVerified, sources = [], alternates = true } = Astro.props;
+const m = getMessages(locale.code);
+const site = Astro.site!;
+const fullTitle = path === '/' ? `${m.meta.siteName}: ${title}` : `${title} · ${m.meta.siteName}`;
+const nav = [
+  ['/check/', m.nav.check],
+  ['/register/', m.nav.register],
+  ['/move/', m.nav.move],
+  ['/deadlines/', m.nav.deadlines],
+  ['/about/', m.nav.about],
+] as const;
+const englishLocale = locales[0];
+---
+<!doctype html>
+<html lang={locale.code} dir={locale.dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description ?? m.meta.description} />
+    <link rel="canonical" href={new URL(localePath(locale, path), site)} />
+    {alternates && locales.map((l) => <link rel="alternate" hreflang={l.code} href={new URL(localePath(l, path), site)} />)}
+    {alternates && <link rel="alternate" hreflang="x-default" href={new URL(path, site)} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#3d2a7a" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description ?? m.meta.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={locale.code} />
+  </head>
+  <body>
+    <a class="skip" href="#main">{m.nav.skip}</a>
+    <header class="site-header">
+      <div class="container bar">
+        <a class="brand" href={localePath(locale, '/')}>
+          <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--ink)"/><path d="M9 6c0 0 4 7 4 13a3 3 0 0 1-6 0c0-6 2-13 2-13z" fill="#fff"/><path d="M15 21l4 4 8-11" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>{m.meta.siteName}</span>
+        </a>
+        <LanguageSwitcher locale={locale} path={path} label={m.nav.language} />
+      </div>
+      <nav class="container" aria-label={m.nav.menu}>
+        <ul class="nav">
+          {nav.map(([href, label]) => (
+            <li><a href={localePath(locale, href)} aria-current={href === path ? 'page' : undefined}>{label}</a></li>
+          ))}
+        </ul>
+      </nav>
+    </header>
+
+    {!locale.reviewed && (
+      <div class="mt-banner" role="note">
+        <div class="container">
+          <p>{m.common.machineBanner}</p>
+          <p><a href={localePath(englishLocale, path)}>{m.common.readInEnglish}</a></p>
+        </div>
+      </div>
+    )}
+
+    <main id="main" class="container">
+      <slot />
+      {(lastVerified || sources.length > 0) && (
+        <aside class="provenance muted">
+          {lastVerified && <p>{fill(m.common.lastVerified, { date: formatDate(lastVerified, locale) })}</p>}
+          {sources.length > 0 && (
+            <details>
+              <summary>{m.common.sources}</summary>
+              <ul lang="en" dir="ltr">
+                {sources.map((s) => <li>{s.url ? <a href={s.url}>{s.label}</a> : s.label}</li>)}
+              </ul>
+            </details>
+          )}
+        </aside>
+      )}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p class="helpline" set:html={rich(m.common.helpline)} />
+        <p class="muted">{m.common.helplineNote}</p>
+        <p class="muted">{m.common.notAffiliated}</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-header { background: var(--surface); border-block-end: 1px solid var(--border); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; }
+  .brand {
+    display: inline-flex; align-items: center; gap: 10px; min-height: 48px;
+    font-weight: 750; font-size: 1.15rem; color: var(--ink-strong); text-decoration: none;
+    font-family: 'Noto Sans Variable', system-ui, sans-serif;
+  }
+  .nav {
+    list-style: none; margin: 0; padding: 0 0 10px; display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .nav li + li { margin: 0; }
+  .nav a {
+    display: inline-flex; align-items: center; min-height: 44px; padding: 6px 14px;
+    border-radius: 999px; background: var(--ink-soft); color: var(--ink-strong);
+    text-decoration: none; font-size: 0.95rem; font-weight: 600;
+  }
+  .nav a[aria-current='page'] { background: var(--ink); color: var(--bg); }
+  .mt-banner { background: var(--accent-soft); border-block-end: 1px solid var(--border); font-size: 0.95rem; }
+  .mt-banner p { margin: 0; padding-block: 8px 0; }
+  .mt-banner p:last-child { padding-block-end: 10px; }
+  main { padding-block: 24px 40px; }
+  .provenance { margin-block-start: 40px; border-block-start: 1px solid var(--border); padding-block-start: 16px; }
+  .provenance summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; }
+  .site-footer { background: var(--ink-soft); padding-block: 24px; }
+  .helpline { font-size: 1.2rem; margin-block-end: 0.25em; }
+</style>

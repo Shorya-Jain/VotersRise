@@ -1,0 +1,5 @@
+torch==2.8.0
+transformers==4.53.3
+IndicTransToolkit==1.1.1
+sacrebleu==2.5.1
+huggingface_hub[cli]==0.34.4

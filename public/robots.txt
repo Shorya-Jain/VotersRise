@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://votersrise.workers.dev/sitemap-index.xml

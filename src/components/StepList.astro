@@ -1,0 +1,37 @@
+---
+import Illustration, { type IllustrationName } from './Illustration.astro';
+import { fill, rich } from '../i18n/t';
+
+interface Props {
+  steps: { title: string; body: string }[];
+  illustrations: IllustrationName[];
+  /** e.g. "Step {n}". Leave out when the items are options, not steps. */
+  stepLabel?: string;
+}
+const { steps, illustrations, stepLabel } = Astro.props;
+---
+<ol class="steps">
+  {steps.map((s, i) => (
+    <li class="card">
+      <Illustration name={illustrations[i]} />
+      <div>
+        {stepLabel && <p class="n">{fill(stepLabel, { n: i + 1 })}</p>}
+        <h3>{s.title}</h3>
+        <p set:html={rich(s.body)} />
+      </div>
+    </li>
+  ))}
+</ol>
+
+<style>
+  .steps { list-style: none; padding: 0; display: grid; gap: 12px; }
+  .steps li { display: flex; gap: 16px; align-items: flex-start; margin: 0; }
+  .steps p:last-child { margin: 0; }
+  .n {
+    margin: 0 0 2px; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.02em;
+    color: var(--accent); text-transform: uppercase;
+  }
+  @media (max-width: 420px) {
+    .steps li { flex-direction: column; gap: 8px; }
+  }
+</style>

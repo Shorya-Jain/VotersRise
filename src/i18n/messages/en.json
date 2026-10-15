@@ -1,0 +1,329 @@
+{
+  "meta": {
+    "siteName": "VotersRise",
+    "tagline": "Make sure your vote counts",
+    "description": "Free, simple guides to check the voter list, register to vote, move your vote to a new city, and know the deadlines. In 23 languages."
+  },
+  "nav": {
+    "home": "Home",
+    "check": "Check your name",
+    "register": "Register",
+    "move": "Moved?",
+    "deadlines": "Deadlines",
+    "about": "About",
+    "menu": "Menu",
+    "language": "Language",
+    "skip": "Skip to content"
+  },
+  "common": {
+    "helpline": "Voter helpline: call **1950**",
+    "helplineNote": "From a mobile phone, you may need to add your district's STD code before 1950.",
+    "notAffiliated": "VotersRise is a free, independent guide. We are not part of the Election Commission of India (ECI). Always apply on official ECI websites, which end in eci.gov.in.",
+    "lastVerified": "Last checked: {date}",
+    "sources": "Sources",
+    "opensOfficial": "Official site",
+    "step": "Step {n}",
+    "machineBanner": "This page was translated by a computer and has not been checked by a person yet. Some words may be wrong. Official forms are on voters.eci.gov.in.",
+    "readInEnglish": "Read in English",
+    "otpWarning": "Never share your OTP with anyone. Officials will never ask for it."
+  },
+  "home": {
+    "title": "Make sure your vote counts",
+    "lead": "Free, simple guides to get on the voter list and vote, in your language.",
+    "tasks": {
+      "check": {
+        "title": "Is my name on the voter list?",
+        "body": "Check online with your voter ID number, your details, or your mobile number."
+      },
+      "register": {
+        "title": "Register to vote",
+        "body": "Never registered? Apply with Form 6. It is free."
+      },
+      "move": {
+        "title": "Moved to a new city?",
+        "body": "Renting away from home for work or study? Move your vote with Form 8."
+      },
+      "deadlines": {
+        "title": "Deadlines",
+        "body": "Upcoming elections, and the date after which the voter list is frozen."
+      }
+    },
+    "languagesTitle": "Read this site in your language",
+    "whyTitle": "Why check?",
+    "why": "You can vote only if your name is on the voter list for your area. Having a voter ID card is not enough. Names can be removed when people move or when the list is revised. Check before every election."
+  },
+  "check": {
+    "title": "Is your name on the voter list?",
+    "lead": "You can vote only if your name is on the electoral roll (voter list) where you live. Having a voter ID card is not enough. Check before every election.",
+    "cta": "Check on the ECI website",
+    "waysTitle": "Three ways to search",
+    "ways": [
+      {
+        "title": "With your voter ID number (EPIC)",
+        "body": "Your EPIC number is the 10-character number printed on your voter ID card. Choose **Search by EPIC**, type the number, pick your state, type the captcha, and press Search."
+      },
+      {
+        "title": "With your details",
+        "body": "No card? Choose **Search by Details**. Enter your name, your father's, mother's or spouse's name, your age or date of birth, your gender, state, district and constituency. If nothing shows up, try other spellings."
+      },
+      {
+        "title": "With your mobile number",
+        "body": "Choose **Search by Mobile**. This works only if your phone number is already linked to your voter record. Enter the number, the captcha, and the OTP you receive."
+      }
+    ],
+    "resultTitle": "What you will see",
+    "result": "If you are on the list, you will see your name, your Assembly constituency, your part number, your serial number in that part, and your polling station. Take a screenshot. It helps on voting day.",
+    "otherTitle": "Other ways to check",
+    "other": [
+      {
+        "title": "ECINET app",
+        "body": "ECINET is the official app of the Election Commission for Android and iPhone. It brings together voter search, forms, application tracking and the older Voter Helpline app. Website: [ecinet.eci.gov.in](https://ecinet.eci.gov.in/)"
+      },
+      {
+        "title": "Call 1950",
+        "body": "The voter helpline can check your name for you."
+      },
+      {
+        "title": "Ask your BLO",
+        "body": "Every polling booth area has a Booth Level Officer (BLO) who keeps the voter list for that area. You can find your BLO and book a call with them on ECINET."
+      }
+    ],
+    "notFoundTitle": "Not on the list? Don't panic",
+    "notFound": [
+      "Search again with other spellings, or with fewer details, for example only your name and age.",
+      "Search at your old address. Your name may still be listed where you lived before.",
+      "Never registered? Apply with **Form 6**.",
+      "Registered before but moved? Use **Form 8** to shift your address."
+    ],
+    "toRegister": "How to register with Form 6",
+    "toMove": "How to move your vote with Form 8"
+  },
+  "register": {
+    "title": "Get your name on the voter list",
+    "lead": "Registering is free. You can apply online or on paper. If you have never been registered, you need **Form 6**.",
+    "cta": "Apply on the ECI voter portal",
+    "whoTitle": "Who can apply",
+    "who": [
+      "You are a citizen of India.",
+      "You are 18 or older on 1 January, 1 April, 1 July or 1 October. If you are 17, you can apply early. Your name is added when you turn 18.",
+      "You ordinarily live at the address where you want to vote.",
+      "You are not registered anywhere else."
+    ],
+    "docsTitle": "Keep these ready",
+    "photoTitle": "A photo",
+    "photo": "A recent passport-size colour photo with a white background (4.5 cm × 3.5 cm). Eyes open, full face visible.",
+    "ageTitle": "Age proof (any one)",
+    "age": [
+      "Birth certificate",
+      "Aadhaar card",
+      "PAN card",
+      "Driving licence",
+      "Class 10 or Class 12 certificate that shows your date of birth",
+      "Indian passport"
+    ],
+    "addressTitle": "Address proof (any one)",
+    "address": [
+      "Water, electricity or gas bill for that address (at least 1 year)",
+      "Aadhaar card",
+      "Current bank or post office passbook",
+      "Indian passport",
+      "Land records, including Kisan Bahi",
+      "Registered rent agreement (if you rent)",
+      "Registered sale deed (if you own the house)"
+    ],
+    "docsNote": "The address proof can be in your name or in the name of your parent or spouse. If you have none of these, you can still apply. Write the name of another document, and an officer will visit to check your address. Aadhaar is asked for, but you can say that you do not have it.",
+    "stepsTitle": "Apply online in 8 steps",
+    "steps": [
+      {
+        "title": "Open the voter portal",
+        "body": "Go to [voters.eci.gov.in](https://voters.eci.gov.in/) or open the ECINET app."
+      },
+      {
+        "title": "Sign up with your mobile number",
+        "body": "Create an account with your mobile number and the OTP you receive."
+      },
+      {
+        "title": "Choose Form 6",
+        "body": "Pick **Form 6**, the form for new voters."
+      },
+      {
+        "title": "Fill in your details",
+        "body": "Your name, a relative's name, your date of birth and your address. Write your name in English and in your state's language to avoid spelling mistakes."
+      },
+      {
+        "title": "Upload your photo and documents",
+        "body": "Upload your photo, age proof and address proof. Make sure the photos are clear and easy to read."
+      },
+      {
+        "title": "Submit and save the reference number",
+        "body": "After you submit, write down the reference number or take a screenshot. You need it to track your application."
+      },
+      {
+        "title": "A BLO may visit you",
+        "body": "The Booth Level Officer may come to your home to check your address. Keep your original documents ready."
+      },
+      {
+        "title": "Track it and get your voter ID",
+        "body": "Track your application on the voter portal with your reference number. Once it is approved, you can download your e-EPIC (digital voter ID). The card is sent to you by Speed Post, free of cost."
+      }
+    ],
+    "offlineTitle": "Prefer paper?",
+    "offline": "Fill in a paper Form 6 and hand it to your BLO, or to the office of the Electoral Registration Officer (ERO) for your area.",
+    "otherFormsTitle": "Other forms",
+    "otherForms": [
+      "**Form 6A**: for Indian citizens living abroad.",
+      "**Form 8**: if you moved house, or to correct a mistake in your entry.",
+      "**Form 7**: to object to a wrong name on the list, or to remove a name."
+    ],
+    "timingTitle": "Apply early",
+    "timing": "Your name must be on the voter list by the last date of nominations for an election. After that date the list is frozen. An application that is still pending does not count.",
+    "warning": "Giving false information in these forms is a crime. It can lead to up to one year in jail, a fine, or both (Section 31, Representation of the People Act, 1950).",
+    "toDeadlines": "See upcoming deadlines"
+  },
+  "move": {
+    "title": "Moved to a new city? Move your vote too",
+    "lead": "You can be registered in only one place: where you ordinarily live. If you have moved for work or study, you can shift your registration with **Form 8**. Your name is then removed from the list at your old address.",
+    "cta": "Shift your address on the ECI voter portal",
+    "problemTitle": "The renters who cannot vote",
+    "problem": [
+      "Many people move to another city for work and rent a room or a flat. Their name stays on the voter list back home. On voting day they are far away. Going home costs money and days off work, so many of them do not vote.",
+      "The Election Commission of India says that not being able to vote because of migration within the country is one of the prominent reasons for low turnout. In the 2019 general election, turnout was 67.4%. More than 30 crore registered voters did not vote.",
+      "ECI says many migrants do not register where they work because they move house often, feel less connected to local issues, or do not want their name removed back home where they have family or property.",
+      "In 2022, ECI proposed a remote voting machine, so that migrants could vote for their home constituency from the city where they live. As of October 2026, we have not found any ECI announcement that it is being used in elections. Until it is, the practical choices are to move your registration, or to plan your trip home early."
+    ],
+    "decideTitle": "Should you move your vote?",
+    "shiftTitle": "Move it with Form 8 if",
+    "shift": [
+      "You have lived here for a while and plan to stay.",
+      "You cannot travel home on voting day.",
+      "You want a say in the place where you live and work."
+    ],
+    "stayTitle": "Stay registered at home if",
+    "stay": [
+      "You will move again soon.",
+      "You go home often and can travel to vote.",
+      "Your home is where you ordinarily live, and you are only away for a short time."
+    ],
+    "decideNote": "Either way, you cannot be on two lists at once. Check that your name is on the list where you choose to vote.",
+    "proofTitle": "Address proof for renters",
+    "proofLead": "You need one of these for your new address. It can be in your name, or in the name of your parent or spouse.",
+    "proof": [
+      "Registered rent agreement",
+      "Aadhaar card with your new address",
+      "Bank or post office passbook with your new address",
+      "Water, electricity or gas bill for that address (at least 1 year)",
+      "Indian passport"
+    ],
+    "tipsTitle": "Tips if your name is not on the rent papers",
+    "tips": [
+      "Update the address in your bank account or Aadhaar first. Then use it as your proof.",
+      "Ask your landlord or PG owner for a registered rent agreement.",
+      "Students can register at their hostel address.",
+      "If you have none of these documents, write the name of another document in the form. An officer will visit to check that you live there."
+    ],
+    "stepsTitle": "Shift your registration in 6 steps",
+    "steps": [
+      {
+        "title": "Find your current entry",
+        "body": "Search for your name on [electoralsearch.eci.gov.in](https://electoralsearch.eci.gov.in/) and note your EPIC number."
+      },
+      {
+        "title": "Log in to the voter portal",
+        "body": "Go to [voters.eci.gov.in](https://voters.eci.gov.in/) or open the ECINET app, and log in with your mobile number."
+      },
+      {
+        "title": "Choose Form 8, Shifting of residence",
+        "body": "Say whether you moved within the same constituency or to a different one."
+      },
+      {
+        "title": "Enter your new address",
+        "body": "Type your full new address and upload one address proof."
+      },
+      {
+        "title": "Submit and save the reference number",
+        "body": "A BLO may visit your new address to check that you live there."
+      },
+      {
+        "title": "Get your new voter ID",
+        "body": "Once approved, your name moves to the list at your new address and is removed from the old one. You get a replacement voter ID. Return the old card."
+      }
+    ],
+    "sirTitle": "Is your state revising its voter list?",
+    "sir": "During a Special Intensive Revision (SIR), BLOs visit homes to check every voter. If you no longer live at your registered address, your name may be marked as shifted or absent, and it may be left off the new list. Check the draft list and apply in time.",
+    "toDeadlines": "See SIR dates for your state"
+  },
+  "deadlines": {
+    "title": "Election and voter list deadlines",
+    "lead": "Know when to apply, so your name is on the list in time.",
+    "ruleTitle": "The deadline that matters most",
+    "rule": "Your name must be on the voter list by the **last date of nominations** for that election. After that date the list is frozen until the election is over. An application that is still pending on that day does not count. Apply weeks early, not days.",
+    "anytime": "You can apply at any time of the year. For people turning 18, the list is updated four times a year: on 1 January, 1 April, 1 July and 1 October.",
+    "electionsTitle": "Upcoming state elections",
+    "electionsNote": "ECI announces exact dates a few weeks before the polls. Until then, these dates are estimates.",
+    "status": {
+      "expected": "Expected",
+      "announced": "Announced",
+      "frozen": "List frozen"
+    },
+    "pollWindow": "Polls: {when}",
+    "notAnnounced": "Dates not announced yet",
+    "lastDateToApply": "Last date to be on the list: {date}",
+    "sirTitle": "Special Intensive Revision (SIR) of voter lists",
+    "sirLead": "ECI is checking the voter list house by house in most states. If your state is listed below, check that your name is on the draft list. If it is not, file a claim during the claims and objections period.",
+    "sirOpen": "Still in progress",
+    "sirDone": "Finished",
+    "sirPending": "Not scheduled yet: {states}. ECI will announce these later.",
+    "sirEarlier": "Earlier phases covered Bihar in 2025, and 12 states and union territories that were scheduled to finish in February 2026.",
+    "draft": "Draft list",
+    "claims": "Claims and objections",
+    "final": "Final list",
+    "revised": "Revised schedule",
+    "checkCeo": "Dates can change. Check your state Chief Electoral Officer (CEO) website for the latest dates.",
+    "when": {
+      "early2027": "early 2027",
+      "late2027": "late 2027"
+    }
+  },
+  "about": {
+    "title": "About VotersRise",
+    "lead": "VotersRise is a free, non-commercial guide that helps people in India get on the voter list and vote.",
+    "why": "Every election, people find out too late that their name is missing, or they are stuck in a city far from where they are registered. The official information exists, but it is spread across many websites and is hard to follow. We put the key steps in one place, in plain language, in every scheduled language of India.",
+    "independentTitle": "Independent",
+    "independent": "We are not part of the Election Commission of India or any political party. We do not collect your personal data. All applications are made on official ECI websites.",
+    "accuracyTitle": "How we check facts",
+    "accuracy": "Every step on this site comes from official ECI forms, guidelines and press notes. Each page shows when it was last checked and lists its sources. Rules and dates change, so always confirm on the official website.",
+    "translationTitle": "About the translations",
+    "translation": "The English text is written first. The other 22 languages are translated by a computer using IndicTrans2, an open-source model built for Indian languages by AI4Bharat. Pages that have not yet been checked by a native speaker show a notice at the top."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "This page does not exist. Go back to the home page."
+  },
+  "states": {
+    "AP": "Andhra Pradesh",
+    "AR": "Arunachal Pradesh",
+    "CH": "Chandigarh",
+    "DD": "Dadra and Nagar Haveli and Daman and Diu",
+    "DL": "Delhi",
+    "GA": "Goa",
+    "GJ": "Gujarat",
+    "HP": "Himachal Pradesh",
+    "HR": "Haryana",
+    "JH": "Jharkhand",
+    "JK": "Jammu and Kashmir",
+    "KA": "Karnataka",
+    "LA": "Ladakh",
+    "MH": "Maharashtra",
+    "ML": "Meghalaya",
+    "MN": "Manipur",
+    "MZ": "Mizoram",
+    "NL": "Nagaland",
+    "OD": "Odisha",
+    "PB": "Punjab",
+    "SK": "Sikkim",
+    "TG": "Telangana",
+    "TR": "Tripura",
+    "UK": "Uttarakhand",
+    "UP": "Uttar Pradesh"
+  }
+}

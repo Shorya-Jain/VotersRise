@@ -1,0 +1,78 @@
+---
+// Text-free line illustrations, so they work in every language.
+export type IllustrationName =
+  | 'portal' | 'otp' | 'form' | 'pen' | 'upload' | 'receipt' | 'visit' | 'card' | 'search' | 'move';
+interface Props { name: IllustrationName }
+const { name } = Astro.props;
+---
+<svg class="ill" viewBox="0 0 96 72" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+  {name === 'portal' && (<>
+    <rect x="10" y="10" width="76" height="52" rx="6" class="f s" />
+    <path d="M10 22h76" class="s" />
+    <circle cx="18" cy="16" r="2" class="a" /><circle cx="25" cy="16" r="2" class="a" />
+    <rect x="22" y="32" width="52" height="10" rx="5" class="bg s" />
+    <path d="M44 52h8" class="s" />
+  </>)}
+  {name === 'otp' && (<>
+    <rect x="30" y="6" width="36" height="60" rx="6" class="f s" />
+    <path d="M44 12h8" class="s" />
+    <rect x="36" y="28" width="24" height="12" rx="3" class="bg s" />
+    <circle cx="42" cy="34" r="1.6" class="a" /><circle cx="48" cy="34" r="1.6" class="a" /><circle cx="54" cy="34" r="1.6" class="a" />
+    <path d="M72 22l6-4M74 32h8M72 42l6 4" class="sa" />
+  </>)}
+  {name === 'form' && (<>
+    <path d="M26 6h34l12 12v48H26z" class="f s" />
+    <path d="M60 6v12h12" class="s" />
+    <text x="35" y="28" class="num">6</text>
+    <path d="M34 40h30M34 48h30M34 56h18" class="s" />
+  </>)}
+  {name === 'pen' && (<>
+    <rect x="16" y="10" width="46" height="56" rx="4" class="f s" />
+    <path d="M24 24h28M24 34h28M24 44h16" class="s" />
+    <path d="M58 54l22-22 6 6-22 22-8 2z" class="bg sa" />
+  </>)}
+  {name === 'upload' && (<>
+    <path d="M18 14h26l8 8v38H18z" class="f s" />
+    <circle cx="35" cy="34" r="7" class="s" /><path d="M24 54c3-7 19-7 22 0" class="s" />
+    <path d="M70 58V26M58 38l12-12 12 12" class="sa" />
+  </>)}
+  {name === 'receipt' && (<>
+    <path d="M24 6h48v60l-8-5-8 5-8-5-8 5-8-5-8 5z" class="f s" />
+    <path d="M34 20h28M34 30h20" class="s" />
+    <circle cx="48" cy="46" r="9" class="bg sa" /><path d="M43 46l4 4 7-8" class="sa" />
+  </>)}
+  {name === 'visit' && (<>
+    <path d="M10 36l24-20 24 20v28H10z" class="f s" />
+    <rect x="27" y="44" width="14" height="20" class="bg s" />
+    <circle cx="74" cy="26" r="7" class="sa" />
+    <path d="M62 64V46a12 12 0 0 1 24 0v18" class="sa" />
+    <rect x="80" y="44" width="10" height="13" rx="1.5" class="bg sa" />
+  </>)}
+  {name === 'card' && (<>
+    <rect x="10" y="14" width="76" height="46" rx="6" class="f s" />
+    <circle cx="30" cy="34" r="7" class="s" /><path d="M19 52c3-7 19-7 22 0" class="s" />
+    <path d="M50 30h26M50 40h20M50 50h14" class="s" />
+    <circle cx="80" cy="16" r="9" class="bg sa" /><path d="M76 16l3 3 5-6" class="sa" />
+  </>)}
+  {name === 'search' && (<>
+    <rect x="8" y="10" width="54" height="52" rx="4" class="f s" />
+    <path d="M16 22h38M16 32h38M16 42h22" class="s" />
+    <circle cx="62" cy="44" r="13" class="bg sa" /><path d="M71 53l12 12" class="sa" />
+  </>)}
+  {name === 'move' && (<>
+    <path d="M6 44l14-12 14 12v20H6z" class="f s" />
+    <path d="M62 40l14-12 14 12v24H62z" class="f s" />
+    <path d="M30 22c10-12 26-12 36 0" class="sa" /><path d="M60 16l6 6-8 3" class="sa" />
+    <path d="M76 6a6 6 0 0 1 6 6c0 5-6 10-6 10s-6-5-6-10a6 6 0 0 1 6-6z" class="bg sa" />
+  </>)}
+</svg>
+
+<style>
+  .ill { width: 96px; height: 72px; flex: none; }
+  .s { stroke: var(--ink); }
+  .sa { stroke: var(--accent); }
+  .f { fill: var(--ink-soft); }
+  .bg { fill: var(--surface); }
+  .a { fill: var(--accent); }
+  .num { fill: var(--ink); font: 700 13px system-ui, sans-serif; }
+</style>

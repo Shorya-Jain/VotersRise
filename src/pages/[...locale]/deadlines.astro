@@ -1,0 +1,107 @@
+---
+import Base from '../../layouts/Base.astro';
+import Callout from '../../components/Callout.astro';
+import { getLocale, localeStaticPaths } from '../../i18n/locales';
+import { getMessages, rich, fill, formatDate } from '../../i18n/t';
+import { data } from '../../data/elections';
+
+export const getStaticPaths = localeStaticPaths;
+const locale = getLocale(Astro.params.locale);
+const m = getMessages(locale.code);
+const d = m.deadlines;
+const states = m.states as Record<string, string>;
+const names = (codes: string[]) => codes.map((c) => states[c] ?? c).join(', ');
+const date = (iso: string) => formatDate(iso, locale);
+
+// Split by the build date; redeploy to move finished revisions down.
+const today = new Date().toISOString().slice(0, 10);
+const open = data.sir.groups.filter((g) => g.final >= today).sort((a, b) => a.final.localeCompare(b.final));
+const done = data.sir.groups.filter((g) => g.final < today);
+const usedSources = new Set(['rp-act-23', ...data.sir.groups.map((g) => g.source), ...data.elections.flatMap((e) => e.source ?? [])]);
+---
+<Base
+  locale={locale}
+  path="/deadlines/"
+  title={d.title}
+  description={d.lead}
+  lastVerified={data.lastVerified}
+  sources={[...usedSources].map((id) => data.sources[id]).filter(Boolean)}
+>
+  <h1>{d.title}</h1>
+  <p class="lead">{d.lead}</p>
+
+  <Callout tone="warn" title={d.ruleTitle}>
+    <p set:html={rich(d.rule)} />
+  </Callout>
+  <p>{d.anytime}</p>
+
+  <h2>{d.electionsTitle}</h2>
+  <p class="muted">{d.electionsNote}</p>
+  <ul class="grid">
+    {data.elections.map((e) => (
+      <li class="card election">
+        <span class:list={['badge', e.status]}>{d.status[e.status]}</span>
+        <h3>{states[e.state]}</h3>
+        <p>{fill(d.pollWindow, { when: d.when[e.when] })}</p>
+        <p class="muted">
+          {e.lastDateOfNominations ? fill(d.lastDateToApply, { date: date(e.lastDateOfNominations) }) : d.notAnnounced}
+        </p>
+      </li>
+    ))}
+  </ul>
+
+  <h2>{d.sirTitle}</h2>
+  <p>{d.sirLead}</p>
+
+  {open.length > 0 && (<>
+    <h3>{d.sirOpen}</h3>
+    <ul class="sir">
+      {open.map((g) => (
+        <li class="card">
+          <h4>{names(g.states)}{g.revised && <span class="badge revised">{d.revised}</span>}</h4>
+          <dl>
+            <div><dt>{d.draft}</dt><dd>{date(g.draft)}</dd></div>
+            <div><dt>{d.claims}</dt><dd>{date(g.claimsFrom)}{g.claimsTo && <> – {date(g.claimsTo)}</>}</dd></div>
+            <div class="final"><dt>{d.final}</dt><dd>{date(g.final)}</dd></div>
+          </dl>
+        </li>
+      ))}
+    </ul>
+  </>)}
+
+  {done.length > 0 && (
+    <details class="done">
+      <summary>{d.sirDone}: {names(done.flatMap((g) => g.states))}</summary>
+      <ul>
+        {done.map((g) => <li>{names(g.states)}: {d.final} {date(g.final)}</li>)}
+      </ul>
+    </details>
+  )}
+
+  <p>{fill(d.sirPending, { states: names(data.sir.pending) })}</p>
+  <p class="muted">{d.sirEarlier}</p>
+  <Callout tone="info"><p>{d.checkCeo}</p></Callout>
+</Base>
+
+<style>
+  .grid, .sir { list-style: none; padding: 0; display: grid; gap: 12px; }
+  .grid li, .sir li { margin: 0; }
+  @media (min-width: 560px) { .grid { grid-template-columns: 1fr 1fr; } }
+  .election h3 { margin-block: 6px 4px; }
+  .election p { margin: 0; }
+  .badge {
+    display: inline-block; font-size: 0.8rem; font-weight: 700; padding: 2px 10px; border-radius: 999px;
+    background: var(--ink-soft); color: var(--ink-strong);
+  }
+  .badge.announced { background: var(--ok-soft); color: var(--ok); }
+  .badge.frozen, .badge.revised { background: var(--accent-soft); color: var(--accent); }
+  .badge.revised { margin-inline-start: 8px; vertical-align: middle; }
+  h4 { font-size: 1.05rem; margin: 0 0 8px; color: var(--ink-strong); }
+  dl { margin: 0; display: grid; gap: 4px; }
+  dl div { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  dt { color: var(--muted); }
+  dd { margin: 0; font-weight: 600; }
+  .final dd { color: var(--ink-strong); }
+  .done { margin-block: 16px; }
+  .done summary { cursor: pointer; min-height: 44px; padding-block: 10px; }
+</style>

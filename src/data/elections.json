@@ -1,0 +1,207 @@
+{
+  "lastVerified": "2026-10-15",
+  "elections": [
+    {
+      "id": "ga-2027",
+      "state": "GA",
+      "status": "expected",
+      "when": "early2027"
+    },
+    {
+      "id": "mn-2027",
+      "state": "MN",
+      "status": "expected",
+      "when": "early2027"
+    },
+    {
+      "id": "pb-2027",
+      "state": "PB",
+      "status": "expected",
+      "when": "early2027"
+    },
+    {
+      "id": "uk-2027",
+      "state": "UK",
+      "status": "expected",
+      "when": "early2027"
+    },
+    {
+      "id": "up-2027",
+      "state": "UP",
+      "status": "expected",
+      "when": "early2027"
+    },
+    {
+      "id": "gj-2027",
+      "state": "GJ",
+      "status": "expected",
+      "when": "late2027"
+    },
+    {
+      "id": "hp-2027",
+      "state": "HP",
+      "status": "expected",
+      "when": "late2027"
+    }
+  ],
+  "sir": {
+    "pending": [
+      "HP",
+      "JK",
+      "LA"
+    ],
+    "groups": [
+      {
+        "states": [
+          "OD",
+          "MZ",
+          "SK",
+          "MN"
+        ],
+        "draft": "2026-07-05",
+        "claimsFrom": "2026-07-05",
+        "claimsTo": "2026-08-04",
+        "final": "2026-09-06",
+        "source": "eci-pn-086"
+      },
+      {
+        "states": [
+          "DD"
+        ],
+        "draft": "2026-07-10",
+        "claimsFrom": "2026-07-10",
+        "claimsTo": "2026-08-09",
+        "final": "2026-09-11",
+        "source": "eci-pn-086"
+      },
+      {
+        "states": [
+          "UK"
+        ],
+        "draft": "2026-07-14",
+        "claimsFrom": "2026-07-14",
+        "claimsTo": "2026-08-13",
+        "final": "2026-09-15",
+        "source": "eci-pn-086"
+      },
+      {
+        "states": [
+          "AP",
+          "AR",
+          "HR",
+          "CH"
+        ],
+        "draft": "2026-07-21",
+        "claimsFrom": "2026-07-21",
+        "claimsTo": "2026-08-20",
+        "final": "2026-09-22",
+        "source": "eci-pn-086"
+      },
+      {
+        "states": [
+          "PB"
+        ],
+        "draft": "2026-07-31",
+        "claimsFrom": "2026-07-31",
+        "claimsTo": "2026-08-30",
+        "final": "2026-10-01",
+        "source": "eci-pn-086"
+      },
+      {
+        "states": [
+          "TG"
+        ],
+        "draft": "2026-07-31",
+        "claimsFrom": "2026-07-31",
+        "claimsTo": "2026-08-30",
+        "final": "2026-10-19",
+        "source": "ani-tg",
+        "revised": true
+      },
+      {
+        "states": [
+          "ML",
+          "JH"
+        ],
+        "draft": "2026-08-05",
+        "claimsFrom": "2026-08-05",
+        "claimsTo": "2026-09-04",
+        "final": "2026-10-07",
+        "source": "eci-pn-086"
+      },
+      {
+        "states": [
+          "KA"
+        ],
+        "draft": "2026-08-17",
+        "claimsFrom": "2026-08-17",
+        "claimsTo": "2026-09-16",
+        "final": "2026-10-19",
+        "source": "gba-ka",
+        "revised": true
+      },
+      {
+        "states": [
+          "MH"
+        ],
+        "draft": "2026-08-05",
+        "claimsFrom": "2026-08-05",
+        "claimsTo": "2026-10-12",
+        "final": "2026-11-16",
+        "source": "ani-dl-mh",
+        "revised": true
+      },
+      {
+        "states": [
+          "DL"
+        ],
+        "draft": "2026-08-05",
+        "claimsFrom": "2026-08-05",
+        "claimsTo": "2026-10-30",
+        "final": "2026-12-04",
+        "source": "ani-dl-mh",
+        "revised": true
+      },
+      {
+        "states": [
+          "NL"
+        ],
+        "draft": "2026-09-20",
+        "claimsFrom": "2026-09-20",
+        "claimsTo": "2026-10-20",
+        "final": "2026-11-22",
+        "source": "eci-pn-086"
+      },
+      {
+        "states": [
+          "TR"
+        ],
+        "draft": "2026-10-21",
+        "claimsFrom": "2026-10-21",
+        "final": "2026-12-23",
+        "source": "eci-pn-086"
+      }
+    ]
+  },
+  "sources": {
+    "eci-pn-086": {
+      "label": "ECI Press Note ECI/PN/086/2026, SIR Phase III, 14 May 2026",
+      "url": "https://meghalaya.gov.in/sites/default/files/press_release/ECI_PN_086_2026.pdf"
+    },
+    "ani-tg": {
+      "label": "ANI: ECI extends SIR schedule in Telangana, 1 August 2026",
+      "url": "https://www.aninews.in/news/national/general-news/eci-extends-special-intensive-revision-schedule-in-telangana-final-electoral-roll-to-be-published-on-october-1920260801104155/"
+    },
+    "gba-ka": {
+      "label": "Greater Bengaluru Authority: SIR 2026 schedule",
+      "url": "https://x.com/GBA_office/status/2077393596421120156"
+    },
+    "ani-dl-mh": {
+      "label": "ANI: ECI revises SIR schedule in Delhi, Maharashtra, 26 September 2026",
+      "url": "https://www.aninews.in/news/national/general-news/eci-revises-special-intensive-revision-schedule-of-electoral-rolls-in-delhi-maharashtra20260926195800/"
+    },
+    "rp-act-23": {
+      "label": "Representation of the People Act, 1950, Section 23(3)"
+    }
+  }
+}
