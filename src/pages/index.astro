@@ -1,48 +1,116 @@
 ---
 import Base from '../layouts/Base.astro';
-import Illustration from '../components/Illustration.astro';
 import LanguageList from '../components/LanguageList.astro';
 import { m } from '../lib/text';
 
 const tasks = [
-  { href: '/check/', ill: 'search', ...m.home.tasks.check },
-  { href: '/register/', ill: 'form', ...m.home.tasks.register },
-  { href: '/move/', ill: 'move', ...m.home.tasks.move },
-  { href: '/deadlines/', ill: 'receipt', ...m.home.tasks.deadlines },
-] as const;
+  { href: '/check/', label: m.home.labels.check, ...m.home.tasks.check },
+  { href: '/register/', label: m.home.labels.register, ...m.home.tasks.register },
+  { href: '/move/', label: m.home.labels.move, ...m.home.tasks.move },
+  { href: '/deadlines/', label: m.home.labels.deadlines, ...m.home.tasks.deadlines },
+];
 ---
-<Base path="/" title={m.home.title}>
-  <h1>{m.home.title}</h1>
-  <p class="lead">{m.home.lead}</p>
+<Base path="/" title={m.home.title} wide>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">{m.home.eyebrow}</p>
+      <h1 id="hero-title">{m.home.title}</h1>
+      <p class="lead">{m.home.lead}</p>
+      <div class="hero-actions">
+        <a class="button" href="/check/">{m.nav.check}<span aria-hidden="true">→</span></a>
+        <a class="register-link" href="/register/">{m.home.tasks.register.title}<span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="hero-note muted">{m.home.applicationNote}</p>
+    </div>
+    <aside class="voter-note" aria-labelledby="voter-note-title">
+      <p class="eyebrow"><span class="note-rule" aria-hidden="true"></span>{m.home.whyTitle}</p>
+      <h2 id="voter-note-title">{m.home.cardReminder}</h2>
+      <p>{m.home.why}</p>
+      <a href="/check/">{m.home.checkLink}<span aria-hidden="true">→</span></a>
+    </aside>
+  </section>
 
-  <ul class="tasks">
-    {tasks.map((t) => (
-      <li>
-        <a class="card task" href={t.href}>
-          <Illustration name={t.ill} />
-          <span>
-            <strong>{t.title}</strong>
-            <span class="muted">{t.body}</span>
-          </span>
-        </a>
-      </li>
-    ))}
-  </ul>
+  <section class="guide-section" aria-labelledby="guides-title">
+    <div class="section-heading">
+      <p class="eyebrow">{m.home.guidesLabel}</p>
+      <h2 id="guides-title">{m.home.guidesTitle}</h2>
+    </div>
+    <ul class="tasks">
+      {tasks.map((task, i) => (
+        <li>
+          <a class="task" href={task.href}>
+            <span class="eyebrow task-label"><span class="task-index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>{task.label}</span>
+            <span class="task-copy">
+              <strong>{task.title}</strong>
+              <span class="muted">{task.body}</span>
+            </span>
+            <span class="task-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="start-note">
+      <p>{m.home.startNote}</p>
+      <a href="/check/">{m.nav.check}<span aria-hidden="true">→</span></a>
+    </div>
+  </section>
 
-  <h2>{m.home.whyTitle}</h2>
-  <p>{m.home.why}</p>
-
-  <h2>{m.home.languagesTitle}</h2>
-  <p class="muted">{m.home.languagesNote}</p>
-  <LanguageList path="/" variant="grid" />
+  <section class="language-section" aria-labelledby="languages-title">
+    <div>
+      <p class="eyebrow">{m.nav.language}</p>
+      <h2 id="languages-title">{m.home.languagesTitle}</h2>
+      <p class="muted">{m.home.languagesNote}</p>
+    </div>
+    <LanguageList path="/" variant="grid" />
+  </section>
 </Base>
 
 <style>
-  .tasks { list-style: none; padding: 0; display: grid; gap: 12px; margin-block: 24px; }
-  .tasks li { margin: 0; }
-  .task { display: flex; gap: 14px; align-items: center; text-decoration: none; color: var(--text); min-height: 96px; }
-  .task:hover { border-color: var(--ink); }
-  .task strong { display: block; font-size: 1.15rem; color: var(--ink-strong); margin-block-end: 2px; }
-  .task .muted { display: block; }
-  @media (min-width: 720px) { .tasks { grid-template-columns: 1fr 1fr; } }
+  .hero { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); align-items: center; gap: clamp(40px, 7vw, 104px); padding-block: var(--space-6) clamp(64px, 8vw, 112px); }
+  .hero-copy .eyebrow { margin-block-end: var(--space-6); }
+  h1 { max-width: 12ch; font-size: clamp(2.75rem, 6.2vw, 5.5rem); line-height: 1.02; margin-block-end: var(--space-6); }
+  .lead { max-width: 42ch; }
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-6); margin-block: var(--space-8) var(--space-4); }
+  .register-link { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 48px; font-size: 0.9375rem; font-weight: 600; }
+  .hero-note { max-width: 42ch; margin: 0; font-size: 0.8125rem; }
+  .voter-note { border-block: 1px solid var(--border); padding-block: var(--space-6); }
+  .voter-note .eyebrow { display: flex; align-items: center; gap: var(--space-3); margin: 0; }
+  .note-rule { width: 20px; height: 2px; background: var(--ink); flex: none; }
+  .voter-note h2 { margin-block-start: var(--space-6); font-size: clamp(1.65rem, 2.8vw, 2.125rem); }
+  .voter-note p:not(.eyebrow) { font-size: 0.9375rem; }
+  .voter-note a, .start-note a { display: inline-flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: 44px; font-size: 0.875rem; font-weight: 600; }
+  .voter-note a { width: 100%; margin-block-start: var(--space-2); }
+  .section-heading { border-block-start: 1px solid var(--border); padding-block-start: var(--space-8); margin-block-end: var(--space-8); }
+  .section-heading h2 { margin: 0; }
+  .section-heading .eyebrow { margin-block-end: var(--space-3); }
+  .tasks { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-12); margin: 0; }
+  .tasks li { margin: 0; border-block-start: 1px solid var(--border); }
+  .task { display: grid; grid-template-columns: 1fr auto; gap: var(--space-3) var(--space-4); padding-block: var(--space-6); color: var(--text); text-decoration: none; height: 100%; }
+  .task-label { grid-column: 1 / -1; display: flex; gap: var(--space-3); align-items: baseline; }
+  .task-index { color: var(--ink); font-variant-numeric: tabular-nums; letter-spacing: 0; }
+  .task-copy strong { display: block; font-family: var(--heading-font); font-weight: 400; font-size: 1.65rem; line-height: 1.25; margin-block-end: var(--space-2); color: var(--ink-strong); }
+  .task-copy .muted { display: block; max-width: 42ch; }
+  .task-arrow { font-size: 1.5rem; color: var(--ink); }
+  .task:hover strong { text-decoration: underline; text-underline-offset: 0.2em; }
+  .start-note { border-block: 1px solid var(--border); margin-block: var(--space-4) var(--space-16); padding-block: var(--space-4); display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+  .start-note p { margin: 0; font-size: 0.9375rem; }
+  .language-section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr); gap: var(--space-12); }
+  .language-section h2 { margin-block-start: 0; font-size: 1.75rem; }
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; gap: var(--space-8); padding-block: 0 var(--space-12); }
+    h1 { max-width: 13ch; }
+    .voter-note { max-width: none; }
+    .voter-note h2 { margin-block-start: var(--space-4); max-width: 24ch; }
+    .language-section { grid-template-columns: 1fr; gap: var(--space-4); }
+    .tasks { column-gap: var(--space-6); }
+  }
+  @media (max-width: 540px) {
+    .tasks { grid-template-columns: 1fr; }
+    .task { padding-block: var(--space-6); }
+    .hero-actions { align-items: stretch; }
+    .hero-actions .button { flex: 1 1 100%; }
+    .register-link { justify-content: center; width: 100%; }
+    .hero-note { text-align: center; max-width: none; }
+    .start-note { flex-direction: column; align-items: flex-start; gap: 0; margin-block-end: var(--space-12); }
+  }
 </style>

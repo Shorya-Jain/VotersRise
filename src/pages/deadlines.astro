@@ -79,13 +79,13 @@ const usedSources = new Set(['rp-act-23', ...data.sir.groups.map((g) => g.source
 </Base>
 
 <style>
-  .grid, .sir { list-style: none; padding: 0; display: grid; gap: 12px; }
+  .grid, .sir { list-style: none; padding: 0; display: grid; gap: var(--space-4); }
   .grid li, .sir li { margin: 0; }
   @media (min-width: 560px) { .grid { grid-template-columns: 1fr 1fr; } }
   .election h3 { margin-block: 6px 4px; }
   .election p { margin: 0; }
   .badge {
-    display: inline-block; font-size: 0.8rem; font-weight: 700; padding: 2px 10px; border-radius: 999px;
+    display: inline-block; font-size: 0.8rem; font-weight: 700; padding: 2px 10px; border-radius: var(--radius);
     background: var(--ink-soft); color: var(--ink-strong);
   }
   .badge.announced { background: var(--ok-soft); color: var(--ok); }
@@ -93,7 +93,7 @@ const usedSources = new Set(['rp-act-23', ...data.sir.groups.map((g) => g.source
   .badge.revised { margin-inline-start: 8px; vertical-align: middle; }
   h4 { font-size: 1.05rem; margin: 0 0 8px; color: var(--ink-strong); }
   dl { margin: 0; display: grid; gap: 4px; }
-  dl div { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  dl div { display: flex; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
   dt { color: var(--muted); }
   dd { margin: 0; font-weight: 600; }
   .final dd { color: var(--ink-strong); }

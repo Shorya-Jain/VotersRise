@@ -7,13 +7,14 @@ interface Source { label: string; url?: string }
 interface Props {
   /** Page path, e.g. "/check/". */
   path: string;
+  wide?: boolean;
   title: string;
   description?: string;
   lastVerified?: string;
   sources?: Source[];
 }
 
-const { path, title, description, lastVerified, sources = [] } = Astro.props;
+const { path, title, description, lastVerified, sources = [], wide = false } = Astro.props;
 const site = Astro.site!;
 const fullTitle = path === '/' ? `${m.meta.siteName}: ${title}` : `${title} · ${m.meta.siteName}`;
 const nav = [
@@ -33,7 +34,7 @@ const nav = [
     <meta name="description" content={description ?? m.meta.description} />
     <link rel="canonical" href={new URL(path, site)} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <meta name="theme-color" content="#3d2a7a" />
+    <meta name="theme-color" content="#faf9f6" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description ?? m.meta.description} />
     <meta property="og:type" content="website" />
@@ -43,7 +44,7 @@ const nav = [
     <header class="site-header">
       <div class="container bar">
         <a class="brand" href="/" translate="no">
-          <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--ink)"/><path d="M9 6c0 0 4 7 4 13a3 3 0 0 1-6 0c0-6 2-13 2-13z" fill="#fff"/><path d="M15 21l4 4 8-11" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="3" fill="var(--ink-strong)"/><path d="M9 6c0 0 4 7 4 13a3 3 0 0 1-6 0c0-6 2-13 2-13z" fill="var(--button-text)"/><path d="M15 21l4 4 8-11" stroke="var(--button-text)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span>{m.meta.siteName}</span>
         </a>
         <LanguageSwitcher path={path} label={m.nav.language} />
@@ -58,7 +59,7 @@ const nav = [
     </header>
 
 
-    <main id="main" class="container">
+    <main id="main" class:list={["container", { wide }]}>
       <slot />
       {(lastVerified || sources.length > 0) && (
         <aside class="provenance muted">
@@ -76,9 +77,11 @@ const nav = [
     </main>
 
     <footer class="site-footer">
-      <div class="container">
-        <p class="helpline" set:html={rich(m.common.helpline)} />
-        <p class="muted">{m.common.helplineNote}</p>
+      <div class="container footer-grid">
+        <div>
+          <p class="helpline" set:html={rich(m.common.helpline)} />
+          <p class="muted">{m.common.helplineNote}</p>
+        </div>
         <p class="muted">{m.common.notAffiliated}</p>
       </div>
     </footer>
@@ -87,30 +90,35 @@ const nav = [
 </html>
 
 <style>
-  .site-header { background: var(--surface); border-block-end: 1px solid var(--border); }
-  .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; }
+  .site-header { border-block-start: 3px solid var(--ink-strong); border-block-end: 1px solid var(--border); }
+  .bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4); min-height: 92px; padding-block: var(--space-3); }
   .brand {
-    display: inline-flex; align-items: center; gap: 10px; min-height: 48px;
-    font-weight: 750; font-size: 1.15rem; color: var(--ink-strong); text-decoration: none;
-    font-family: 'Noto Sans Variable', system-ui, sans-serif;
+    display: inline-flex; align-items: center; gap: var(--space-3); min-height: 48px;
+    font-family: var(--heading-font); font-size: 1.75rem; font-weight: 700;
+    letter-spacing: -0.04em; color: var(--ink-strong); text-decoration: none;
   }
-  /* One swipeable row on phones instead of wrapping into several. */
-  .nav {
-    list-style: none; margin: 0; padding: 0 0 10px; display: flex; gap: 8px;
-    overflow-x: auto; scrollbar-width: none;
-  }
-  .nav::-webkit-scrollbar { display: none; }
-  .nav li { flex: none; }
-  .nav li + li { margin: 0; }
+  .nav { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--space-8); }
+  .nav li { margin: 0; }
   .nav a {
-    display: inline-flex; align-items: center; min-height: 44px; padding: 6px 14px;
-    border-radius: 999px; background: var(--ink-soft); color: var(--ink-strong);
-    text-decoration: none; font-size: 0.95rem; font-weight: 600;
+    display: inline-flex; align-items: center; min-height: 48px; padding-block: var(--space-2);
+    border-block-end: 2px solid transparent; color: var(--muted);
+    text-decoration: none; font-size: 0.9375rem; font-weight: 550;
   }
-  .nav a[aria-current='page'] { background: var(--ink); color: var(--bg); }
-  main { padding-block: 24px 40px; }
-  .provenance { margin-block-start: 40px; border-block-start: 1px solid var(--border); padding-block-start: 16px; }
-  .provenance summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; }
-  .site-footer { background: var(--ink-soft); padding-block: 24px; }
-  .helpline { font-size: 1.2rem; margin-block-end: 0.25em; }
+  .nav a:hover, .nav a[aria-current='page'] { border-color: var(--ink); color: var(--ink-strong); }
+  .nav a[aria-current='page'] { font-weight: 700; }
+  main { max-width: 50rem; padding-block: clamp(32px, 6vw, 64px) var(--space-16); }
+  main.wide { max-width: 76rem; }
+  .provenance { margin-block-start: var(--space-12); border-block-start: 1px solid var(--border); padding-block-start: var(--space-4); }
+  .provenance summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 600; }
+  .site-footer { border-block-start: 1px solid var(--border); padding-block: var(--space-8); }
+  .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); }
+  .footer-grid p:last-child { margin-block-end: 0; }
+  .helpline { font-size: 1.125rem; margin-block-end: var(--space-2); color: var(--ink-strong); }
+  @media (max-width: 600px) {
+    .bar { min-height: 76px; }
+    .brand { font-size: 1.5rem; gap: var(--space-2); }
+    .nav { gap: 0 var(--space-4); }
+    .nav a { font-size: 0.875rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: var(--space-6); }
+  }
 </style>

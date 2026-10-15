@@ -25,17 +25,17 @@ const site = Astro.site!;
   .langs { list-style: none; margin: 0; padding: 0; }
   .langs li { margin: 0; }
   .menu a {
-    display: flex; align-items: center; min-height: 44px; padding: 4px 12px; border-radius: 8px;
+    display: flex; flex-wrap: wrap; align-items: center; min-height: 44px; padding: 4px 12px; border-radius: var(--radius);
     color: var(--text); text-decoration: none;
   }
   .menu a:hover { background: var(--ink-soft); }
   .menu a[aria-current] { font-weight: 700; color: var(--ink-strong); background: var(--ink-soft); }
-  .en { color: var(--muted); font-size: 0.9em; white-space: pre; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr)); gap: 8px; }
+  .en { color: var(--muted); font-size: 0.9em; white-space: normal; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr)); gap: 0 var(--space-4); }
   .grid a {
-    display: flex; align-items: center; justify-content: center; min-height: 48px; padding: 6px 10px;
-    border: 1px solid var(--border); border-radius: 10px; background: var(--surface);
-    text-decoration: none; color: var(--ink-strong); font-weight: 600; text-align: center;
+    display: flex; align-items: center; justify-content: flex-start; min-height: 48px; padding: var(--space-2) 0;
+    border-block-end: 1px solid var(--border);
+    text-decoration: none; color: var(--ink-strong); font-weight: 600; text-align: start;
   }
-  .grid a[aria-current] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .grid a:hover, .grid a[aria-current] { text-decoration: underline; border-color: var(--ink); }
 </style>

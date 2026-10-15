@@ -64,11 +64,11 @@ const v = m.move;
 </Base>
 
 <style>
-  .problem { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 4px 18px 6px; margin-block: 24px; }
-  .problem h2 { margin-block-start: 16px; }
-  .decide { display: grid; gap: 12px; }
+  .problem { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: var(--space-6); margin-block: var(--space-8); }
+  .problem h2 { margin-block-start: 0; }
+  .decide { display: grid; gap: var(--space-4); }
   .decide ul { margin: 0; }
-  .yes { border-top: 5px solid var(--ok); }
-  .no { border-top: 5px solid var(--ink); }
+  .yes { border-top: 3px solid var(--ok); }
+  .no { border-top: 3px solid var(--ink); }
   @media (min-width: 720px) { .decide { grid-template-columns: 1fr 1fr; } }
 </style>

@@ -26,8 +26,8 @@
     "otpWarning": "Do not give your one-time password (OTP) to another person. Enter it only on the official website or app."
   },
   "home": {
-    "title": "Make sure your vote counts",
-    "lead": "Use these free guides to check your voter registration or submit an application.",
+    "title": "Check your name. Be ready to vote.",
+    "lead": "Find your name on the voter list. Get clear steps to register or update your address.",
     "tasks": {
       "check": {
         "title": "Is my name on the voter list?",
@@ -47,9 +47,22 @@
       }
     },
     "languagesTitle": "Read this site in your language",
-    "whyTitle": "Why check?",
-    "why": "Your name must be on the voter list for your area before you can vote. A voter ID card alone is not sufficient. Check your name before each election.",
-    "languagesNote": "Pages are translated by Google Translate, which can make mistakes. Official forms are on voters.eci.gov.in."
+    "whyTitle": "Before every election",
+    "why": "Your name must be on the voter list for your area. Check it before each election.",
+    "languagesNote": "Pages are translated by Google Translate, which can make mistakes. Official forms are on voters.eci.gov.in.",
+    "eyebrow": "An independent guide for voters in India",
+    "applicationNote": "Free to use. Submit applications on official ECI websites.",
+    "cardReminder": "A voter ID card alone is not enough.",
+    "checkLink": "See how to check your name",
+    "guidesLabel": "Voter guides",
+    "guidesTitle": "What do you need to do?",
+    "startNote": "Not sure where to start? Check the voter list first.",
+    "labels": {
+      "check": "Voter list",
+      "register": "Form 6 · New voters",
+      "move": "Form 8 · Address changes",
+      "deadlines": "Election dates"
+    }
   },
   "check": {
     "title": "Is your name on the voter list?",
