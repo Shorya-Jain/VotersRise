@@ -9,9 +9,10 @@ import { m, rich } from '../lib/text';
 const c = m.check;
 ---
 <Base
+  metaTitle={m.seo.check.title}
+  description={m.seo.check.description}
   path="/check/"
   title={c.title}
-  description={c.lead}
   lastVerified="2026-10-15"
   sources={[
     { label: 'ECI electoral search', url: 'https://electoralsearch.eci.gov.in/' },

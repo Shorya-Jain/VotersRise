@@ -16,9 +16,10 @@ const done = data.sir.groups.filter((g) => g.final < today);
 const usedSources = new Set(['rp-act-23', ...data.sir.groups.map((g) => g.source), ...data.elections.flatMap((e) => e.source ?? [])]);
 ---
 <Base
+  metaTitle={m.seo.deadlines.title}
+  description={m.seo.deadlines.description}
   path="/deadlines/"
   title={d.title}
-  description={d.lead}
   lastVerified={data.lastVerified}
   sources={[...usedSources].map((id) => data.sources[id]).filter(Boolean)}
 >

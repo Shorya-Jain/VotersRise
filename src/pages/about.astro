@@ -4,7 +4,7 @@ import { m } from '../lib/text';
 
 const a = m.about;
 ---
-<Base path="/about/" title={a.title} description={a.lead}>
+<Base metaTitle={m.seo.about.title} description={m.seo.about.description} path="/about/" title={a.title}>
   <h1>{a.title}</h1>
   <p class="lead">{a.lead}</p>
   <p>{a.why}</p>

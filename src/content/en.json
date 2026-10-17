@@ -70,7 +70,7 @@
     "title": "Is your name on the voter list?",
     "lead": "The electoral roll is the official voter list. Your name must be on this list before you can vote. Check your name before each election.",
     "cta": "Check on the ECI website",
-    "waysTitle": "Three ways to search",
+    "waysTitle": "Three ways to check your name online",
     "ways": [
       {
         "title": "With your voter ID number (EPIC)",
@@ -146,7 +146,7 @@
       "Registered sale deed"
     ],
     "docsNote": "Read the current Form 6 instructions for document requirements. The form permits some documents in a family member's name, subject to conditions. If you have no listed document, ask your BLO about other proof. If you have no Aadhaar number, select that option on the form.",
-    "stepsTitle": "Apply online in 8 steps",
+    "stepsTitle": "Apply for a new voter ID online in 8 steps",
     "steps": [
       {
         "title": "Open the voter portal",
@@ -196,7 +196,7 @@
   },
   "move": {
     "title": "Moved to a new city for work?",
-    "lead": "Do you rent a room or flat away from home for work or study? You can register at only one address. This must be the place where you normally live. Use **Form 8** to apply for an address change.",
+    "lead": "Do you rent a room or flat away from home for work or study? You can register at only one address. This must be the place where you normally live. Use **Form 8** to apply for an address change. Form 8 works for a move within your state or to another state.",
     "cta": "Open Form 8 on the ECI voter portal",
     "problemTitle": "Why tenants can miss voting",
     "problem": [
@@ -219,7 +219,7 @@
       "Plan your travel to your registered polling station for election day. Ask your ERO if you are unsure which address applies."
     ],
     "decideNote": "Do not register at two addresses. Your property ownership or travel plans do not by themselves determine your normal place of residence.",
-    "proofTitle": "Address proof for renters",
+    "proofTitle": "Documents required for an address change",
     "proofLead": "Use proof for your new address. Form 8 permits some documents in a family member's name, subject to conditions. Read the form before you apply.",
     "proof": [
       "Registered rent agreement",
@@ -238,7 +238,7 @@
       "If you have no listed document, ask your BLO or ERO about other proof of address.",
       "Do not submit false documents."
     ],
-    "stepsTitle": "Apply for an address change in 6 steps",
+    "stepsTitle": "Change your voter ID address online in 6 steps",
     "steps": [
       {
         "title": "Find your voter registration",
@@ -344,5 +344,31 @@
     "TR": "Tripura",
     "UK": "Uttarakhand",
     "UP": "Uttar Pradesh"
+  },
+  "seo": {
+    "home": {
+      "title": "Voter List Name Check, Apply & Change Address | VotersRise",
+      "description": "Free step-by-step help for Indian voters. Check your name in the voter list, apply for a new voter ID with Form 6, or change your address with Form 8."
+    },
+    "check": {
+      "title": "Check Your Name in the Voter List Online (2026) | VotersRise",
+      "description": "Check your name in the voter list online with your EPIC number, personal details, or mobile number. See what the result shows and what to do if it is missing."
+    },
+    "register": {
+      "title": "New Voter ID Online: Form 6 Steps & Documents | VotersRise",
+      "description": "Apply for a new voter ID online with Form 6. Who can apply, the age and address documents required, and 8 simple steps. You can apply in advance at 17."
+    },
+    "move": {
+      "title": "Voter ID Address Change & Transfer to Another State (Form 8)",
+      "description": "Moved to another city or state for work? Change your voter ID address online with Form 8. Documents required for tenants, rent agreement tips, and steps."
+    },
+    "deadlines": {
+      "title": "SIR 2026 Dates & Voter List Deadlines by State | VotersRise",
+      "description": "Special Intensive Revision (SIR) 2026 dates by state, the last date to get on the voter list before an election, and upcoming state elections."
+    },
+    "about": {
+      "title": "About VotersRise: Free, Open-Source Voter Guide",
+      "description": "VotersRise is a free, independent, open-source guide for voters in India. How we check facts, what we count, and how the translations work."
+    }
   }
 }

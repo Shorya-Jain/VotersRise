@@ -9,9 +9,10 @@ import { m, rich } from '../lib/text';
 const r = m.register;
 ---
 <Base
+  metaTitle={m.seo.register.title}
+  description={m.seo.register.description}
   path="/register/"
   title={r.title}
-  description={r.lead.replace(/\*\*/g, '')}
   lastVerified="2026-10-15"
   sources={[
     { label: 'ECI: Advance applications and e-EPIC download', url: 'https://voters.eci.gov.in/home/ngsp' },
