@@ -11,7 +11,7 @@ const tasks = [
   { href: '/deadlines/', label: m.home.labels.deadlines, ...m.home.tasks.deadlines },
 ];
 ---
-<Base path="/" title={m.home.title} wide>
+<Base metaTitle={m.seo.home.title} description={m.seo.home.description} path="/" title={m.home.title} wide>
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-copy">
       <p class="eyebrow">{m.home.eyebrow}</p>

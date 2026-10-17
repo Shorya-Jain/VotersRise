@@ -9,9 +9,10 @@ import { m, rich } from '../lib/text';
 const v = m.move;
 ---
 <Base
+  metaTitle={m.seo.move.title}
+  description={m.seo.move.description}
   path="/move/"
   title={v.title}
-  description={v.lead.replace(/\*\*/g, '')}
   lastVerified="2026-10-15"
   sources={[
     { label: 'ECI: Form 6 guidelines (student registration)', url: 'https://voters.eci.gov.in/guidelines/Form-6_en.pdf' },
