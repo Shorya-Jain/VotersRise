@@ -1,10 +1,11 @@
 ---
-// Filled in by public/counter.js. Stays hidden without JavaScript or before the
-// first click is counted.
+// Filled in by public/counter.js. Its space is reserved from the first paint
+// (visibility, not display) so the page does not shift when the count arrives.
+// It stays invisible without JavaScript or before the first click is counted.
 import { m } from '../lib/text';
 const [before, after] = m.home.ticker.split('{count}');
 ---
-<aside id="form-ticker" class="ticker" aria-live="polite" hidden>
+<aside id="form-ticker" class="ticker pending" aria-live="polite">
   <p class="figure">{before}<strong data-count translate="no"></strong>{after}</p>
   <p class="muted">{m.home.tickerNote}</p>
 </aside>
@@ -12,6 +13,7 @@ const [before, after] = m.home.ticker.split('{count}');
 <style>
   .ticker { border-block: 1px solid var(--border); padding-block: var(--space-3); margin-block: var(--space-6) 0; }
   .ticker p { margin: 0; }
+  .pending { visibility: hidden; }
   .figure { font-size: 1.1rem; color: var(--ink-strong); }
   .figure strong { font-variant-numeric: tabular-nums; }
 </style>

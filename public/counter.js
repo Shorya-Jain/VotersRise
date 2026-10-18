@@ -13,7 +13,7 @@
     .then(function (data) {
       if (!data || !(data.total > 0)) return;
       ticker.querySelector('[data-count]').textContent = new Intl.NumberFormat('en-IN').format(data.total);
-      ticker.hidden = false;
+      ticker.classList.remove('pending');
     })
     .catch(function () {});
 })();
