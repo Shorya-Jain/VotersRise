@@ -12,20 +12,6 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",
-    "@fontsource-variable/noto-naskh-arabic": "5.3.0",
-    "@fontsource-variable/noto-nastaliq-urdu": "5.3.0",
-    "@fontsource-variable/noto-sans": "5.3.0",
-    "@fontsource-variable/noto-sans-bengali": "5.3.0",
-    "@fontsource-variable/noto-sans-devanagari": "5.3.0",
-    "@fontsource-variable/noto-sans-gujarati": "5.3.0",
-    "@fontsource-variable/noto-sans-gurmukhi": "5.3.0",
-    "@fontsource-variable/noto-sans-kannada": "5.3.0",
-    "@fontsource-variable/noto-sans-malayalam": "5.3.0",
-    "@fontsource-variable/noto-sans-meetei-mayek": "5.3.0",
-    "@fontsource-variable/noto-sans-ol-chiki": "5.3.0",
-    "@fontsource-variable/noto-sans-oriya": "5.3.0",
-    "@fontsource-variable/noto-sans-tamil": "5.3.0",
-    "@fontsource-variable/noto-sans-telugu": "5.3.0",
     "astro": "7.3.8"
   },
   "devDependencies": {
